@@ -1,0 +1,11 @@
+$red-color: #f01649;
+$orange-color: #ffb930;
+$blue-color: #46dafc;
+$black-color: #1f1f1f;
+
+$mobile-width: 768px;
+@mixin mobile() {
+  @media screen and (max-width: $mobile-width) {
+    @content;
+  }
+}
