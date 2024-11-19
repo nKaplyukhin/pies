@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ru">
   <head>
     <meta charset="UTF-8" />
@@ -8,51 +8,160 @@
 
   <body>
     <header class="header">
-      <div class="header__block">
-        <p class="header__text header__text_city">г. Красноярск</p>
-        <a href="tel:+79029102310" class="header__link header__link_number"
-          >8 902 910-23-10</a
-        >
+      <div class="container header__container">
+        <div class="header__block">
+          <p class="header__text header__text_city">г. Красноярск</p>
+          <a href="tel:+79029102310" class="header__link header__link_number"
+            >8 902 910-23-10</a
+          >
+        </div>
+        <nav class="header__nav main_nav">
+          <ul class="main_nav__list">
+            <li class="main_nav__item">
+              <a href="#" class="main_nav__link">каталог</a>
+            </li>
+            <li class="main_nav__item">
+              <a href="#" class="main_nav__link">на заказ</a>
+            </li>
+            <li class="main_nav__item">
+              <a href="#" class="main_nav__link">начаинки</a>
+            </li>
+            <li class="main_nav__item">
+              <a href="#" class="main_nav__link">доставка</a>
+            </li>
+            <li class="main_nav__item">
+              <a href="#" class="main_nav__link">отзывы</a>
+            </li>
+            <li class="main_nav__item">
+              <a href="#" class="main_nav__link">контакты</a>
+            </li>
+          </ul>
+        </nav>
       </div>
-      <nav class="header__nav main_nav">
-        <ul class="main_nav__list">
-          <li class="main_nav__item">
-            <a href="#" class="main_nav__link">каталог</a>
-          </li>
-          <li class="main_nav__item">
-            <a href="#" class="main_nav__link">на заказ</a>
-          </li>
-          <li class="main_nav__item">
-            <a href="#" class="main_nav__link">начаинки</a>
-          </li>
-          <li class="main_nav__item">
-            <a href="#" class="main_nav__link">доставка</a>
-          </li>
-          <li class="main_nav__item">
-            <a href="#" class="main_nav__link">отзывы</a>
-          </li>
-          <li class="main_nav__item">
-            <a href="#" class="main_nav__link">контакты</a>
-          </li>
-        </ul>
-      </nav>
     </header>
 
     <main class="main">
       <section class="section hero">
-        <h1 class="hero__title title">особый подход к вкусу и декору</h1>
-        <img src="./assets/images/main.png" alt="" class="hero__image" />
-        <ul class="hero__list">
-          <li class="hero__item">Вкусно</li>
-          <li class="hero__item">Красиво</li>
-          <li class="hero__item">Натурально</li>
-        </ul>
-        <ul class="hero__social_list">
-          <li class="hero__social_item">w</li>
-          <li class="hero__social_item">t</li>
-          <li class="hero__social_item">v</li>
-          <li class="hero__social_item">i</li>
-        </ul>
+        <div class="container hero__container">
+          <h1 class="hero__title title">особый подход к вкусу и декору</h1>
+          <img src="./assets/images/main.png" alt="" class="hero__image" />
+          <ul class="hero__list">
+            <li class="hero__item">Вкусно</li>
+            <li class="hero__item">Красиво</li>
+            <li class="hero__item">Натурально</li>
+          </ul>
+          <ul class="hero__social-list">
+            <li class="hero__social-item hero__social-item_before"></li>
+            <li class="hero__social-item">
+              <img
+                src="./assets/images/icons/telephone.png"
+                alt=""
+                class="hero__social-image"
+              />
+            </li>
+            <li class="hero__social-item">
+              <img
+                src="./assets/images/icons/telegram.png"
+                alt=""
+                class="hero__social-image"
+              />
+            </li>
+            <li class="hero__social-item">
+              <img
+                src="./assets/images/icons/viber.png"
+                alt=""
+                class="hero__social-image"
+              />
+            </li>
+            <li class="hero__social-item">
+              <img
+                src="./assets/images/icons/instagram.png"
+                alt=""
+                class="hero__social-image"
+              />
+            </li>
+            <li class="hero__social-item hero__social-item_after"></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section collection">
+        <div class="container collection__container">
+          <ul class="collection__list">
+            <li class="collection__item">
+              <img
+                src="./assets/images/1.jpg"
+                alt=""
+                class="collection__images"
+              />
+              <h3 class="collection__text">текст</h3>
+            </li>
+            <li class="collection__item">
+              <img
+                src="./assets/images/2.jpg"
+                alt=""
+                class="collection__images"
+              />
+              <h3 class="collection__text">текст</h3>
+            </li>
+            <li class="collection__item">
+              <img
+                src="./assets/images/3.jpg"
+                alt=""
+                class="collection__images"
+              />
+              <h3 class="collection__text">текст</h3>
+            </li>
+            <li class="collection__item">
+              <img
+                src="./assets/images/4.jpg"
+                alt=""
+                class="collection__images"
+              />
+              <h3 class="collection__text">текст</h3>
+            </li>
+            <li class="collection__item">
+              <img
+                src="./assets/images/5.jpg"
+                alt=""
+                class="collection__images"
+              />
+              <h3 class="collection__text">текст</h3>
+            </li>
+            <li class="collection__item">
+              <img
+                src="./assets/images/6.jpg"
+                alt=""
+                class="collection__images"
+              />
+              <h3 class="collection__text">текст</h3>
+            </li>
+            <li class="collection__item">
+              <img
+                src="./assets/images/7.jpg"
+                alt=""
+                class="collection__images"
+              />
+              <h3 class="collection__text">текст</h3>
+            </li>
+            <li class="collection__item">
+              <img
+                src="./assets/images/8.jpg"
+                alt=""
+                class="collection__images"
+              />
+              <h3 class="collection__text">текст</h3>
+            </li>
+            <li class="collection__item">
+              <img
+                src="./assets/images/9.jpg"
+                alt=""
+                class="collection__images"
+              />
+              <h3 class="collection__text">текст</h3>
+            </li>
+          </ul>
+        </div>
       </section>
     </main>
 

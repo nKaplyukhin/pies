@@ -1,0 +1,30 @@
+.collection {
+  &__list {
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  &__item {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      background-color: black;
+      opacity: 0.7;
+    }
+  }
+  &__text {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    z-index: 10;
+    font-size: 3rem;
+  }
+}
