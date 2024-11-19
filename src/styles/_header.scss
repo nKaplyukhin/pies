@@ -1,0 +1,17 @@
+.header {
+  padding: 1rem 0;
+  &__block {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+  }
+}
+
+.main-nav {
+  &__list {
+    display: flex;
+    gap: 1rem;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+}
