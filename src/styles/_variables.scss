@@ -1,9 +1,7 @@
-$red-color: #f01649;
-$orange-color: #ffb930;
-$blue-color: #46dafc;
-$black-color: #1f1f1f;
+$brown-color: #735849;
+$green-color: #bcc2b4;
 
-$mobile-width: 768px;
+$mobile-width: 1024px;
 @mixin mobile() {
   @media screen and (max-width: $mobile-width) {
     @content;

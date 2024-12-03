@@ -1,45 +1,69 @@
 .hero {
-  padding: 2rem 0;
   &__container {
     display: flex;
     flex-direction: column;
     gap: 2rem;
   }
-  &__title {
-    margin: auto;
-    text-align: center;
-    font-weight: 400;
+
+  &__block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
+    @include mobile {
+      grid-template-columns: 1fr;
+      grid-template-rows: 40rem;
+    }
   }
-  &__image {
-    display: block;
-    width: 20%;
-    margin: auto;
-    align-items: center;
-  }
-  &__list {
+  &__item {
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-transform: uppercase;
-    font-weight: bold;
-    gap: 1rem;
-    font-size: 0.8rem;
+    justify-content: center;
+    @include mobile {
+      grid-row: 2 / 2;
+    }
   }
+
+  &__title {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-weight: 400;
+    text-align: left;
+    font-size: 3rem;
+    color: $brown-color;
+    &_first {
+      padding-left: 2.5rem;
+    }
+    &_third {
+      text-align: right;
+      transform: translateX(3rem);
+    }
+    @include mobile {
+      display: none;
+    }
+  }
+
+  &__image {
+    @include mobile {
+      grid-row: 1 / 2;
+    }
+  }
+
   &__social-list {
     display: flex;
     justify-content: center;
     gap: 1rem;
   }
   &__social-item {
-    align-self: center;
-    &_before,
-    &_after {
-      width: 100%;
-      height: 1px;
-      background-color: black;
-    }
-  }
-  &__social-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: .7rem;
+    border-radius: 50%;
+    border: 1px solid $green-color;
     width: 3rem;
+    height: 3rem;
   }
 }

@@ -5,8 +5,16 @@ import { Autoplay } from "swiper/modules";
 new Swiper(".collection__swiper", {
   modules: [Autoplay],
   loop: true,
-  spaceBetween: 16,
-  slidesPerView: 5,
+
+  slidesPerView: 3,
+  spaceBetween: 5,
+
+  breakpoints: {
+    1024: {
+      spaceBetween: 16,
+      slidesPerView: 5,
+    },
+  },
 
   autoplay: {
     delay: 3000,

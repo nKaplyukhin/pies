@@ -2,6 +2,7 @@
   &__swiper {
     margin-bottom: 1rem;
     position: relative;
+    // max-width: 1800px;
   }
   &__swiper-slide {
     position: relative;
@@ -32,6 +33,9 @@
     z-index: 100;
     transform: translate(-50%, -50%);
     pointer-events: none;
+    @include mobile {
+      font-size: 1.5rem;
+    }
   }
   &__list {
     display: grid;
@@ -60,5 +64,8 @@
     color: white;
     z-index: 10;
     font-size: 3rem;
+    @include mobile {
+      font-size: 2rem;
+    }
   }
 }

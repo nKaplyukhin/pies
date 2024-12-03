@@ -1,17 +1,50 @@
 .header {
   padding: 1rem 0;
-  &__block {
+  &__container {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 2rem;
+    align-items: center;
+  }
+  &__logo {
+    width: 10rem;
   }
 }
 
 .main-nav {
   &__list {
     display: flex;
-    gap: 1rem;
-    text-transform: uppercase;
-    font-weight: bold;
+    font-size: 1.2rem;
+    gap: 1.5rem;
+    color: $brown-color;
+    @include mobile {
+      display: none;
+    }
+  }
+}
+
+
+.burger {
+  width: 2rem;
+  height: .3rem;
+  background-color: $brown-color;
+  position: relative;
+  border: none;
+  &:hover {
+    background-color: $brown-color;
+  }
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    left: -.4rem;
+    right: 0;
+    background-color: $brown-color;
+    height: .3rem;
+  }
+  &::after {
+    bottom: -.7rem
+  }
+  &::before {
+    top: -.7rem;
   }
 }
