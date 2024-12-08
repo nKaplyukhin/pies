@@ -11,7 +11,7 @@
     grid-gap: 1rem;
     @include mobile {
       grid-template-columns: 1fr;
-      grid-template-rows: 40rem;
+      grid-template-rows: 60vw;
     }
   }
   &__item {

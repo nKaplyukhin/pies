@@ -14,8 +14,13 @@ html {
   scroll-margin: 20px;
 }
 
+button {
+  cursor: pointer;
+}
+
 body {
   font-family: Comfortaa;
+
   @include mobile {
     font-size: 12px;
   }
@@ -35,6 +40,10 @@ img {
 
 .section {
   padding: 1rem 0;
+
+  @include mobile {
+    padding: .5rem 0;
+  }
 }
 
 .container {
@@ -42,6 +51,7 @@ img {
   padding: 0 .5rem;
   width: 100%;
   margin: auto;
+
   @include mobile {
     max-width: 800px;
   }
