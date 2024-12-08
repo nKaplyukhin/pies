@@ -1,7 +1,6 @@
-import Swiper from "swiper";
 import "./styles/styles.scss";
+import Swiper from "swiper";
 import { Autoplay } from "swiper/modules";
-
 
 const BURGER_BUTTTON_CLASS = "burger__button"
 const ACTIVE_BURGER_BUTTTON_CLASS = "burger__button_active"
@@ -9,38 +8,52 @@ const ACTIVE_BURGER_BUTTTON_CLASS = "burger__button_active"
 const BURGER_MENU_CLASS = "burger-menu"
 const ACTIVE_BURGER_MENU_CLASS = "burger-menu_active"
 
-const classSelector = (className) => document.querySelector(`.${className}`)
+const SWIPER_CLASS = "collection__swiper"
 
-new Swiper(".collection__swiper", {
-  modules: [Autoplay],
-  loop: true,
+const addDotToClassName = (className) => `.${className}`
+const classSelector = (className) => document.querySelector(addDotToClassName(className))
 
-  slidesPerView: 3,
-  spaceBetween: 5,
+const initSwiper = () => {
+  new Swiper(addDotToClassName(SWIPER_CLASS), {
+    modules: [Autoplay],
+    loop: true,
 
-  breakpoints: {
-    1024: {
-      spaceBetween: 16,
-      slidesPerView: 5,
+    slidesPerView: 3,
+    spaceBetween: 5,
+
+    breakpoints: {
+      1024: {
+        spaceBetween: 16,
+        slidesPerView: 5,
+      },
     },
-  },
 
-  autoplay: {
-    delay: 3000,
-  },
-});
+    autoplay: {
+      delay: 3000,
+    },
+  });
 
-const burgerButton = classSelector(BURGER_BUTTTON_CLASS)
-const burgerMenu = classSelector(BURGER_MENU_CLASS)
+}
 
+const initBurger = () => {
+  const burgerButton = classSelector(BURGER_BUTTTON_CLASS)
+  const burgerMenu = classSelector(BURGER_MENU_CLASS)
 
-burgerButton.addEventListener("click", (e) => {
-  if (burgerButton.classList.contains(ACTIVE_BURGER_BUTTTON_CLASS)) {
-    burgerButton.classList.remove(ACTIVE_BURGER_BUTTTON_CLASS)
-    burgerMenu.classList.remove(ACTIVE_BURGER_MENU_CLASS)
-    return
-  }
+  burgerButton.addEventListener("click", (e) => {
+    if (burgerButton.classList.contains(ACTIVE_BURGER_BUTTTON_CLASS)) {
+      burgerButton.classList.remove(ACTIVE_BURGER_BUTTTON_CLASS)
+      burgerMenu.classList.remove(ACTIVE_BURGER_MENU_CLASS)
+      document.body.style.overflow = null;
+      return
+    }
 
-  burgerButton.classList.add(ACTIVE_BURGER_BUTTTON_CLASS)
-  burgerMenu.classList.add(ACTIVE_BURGER_MENU_CLASS)
+    burgerButton.classList.add(ACTIVE_BURGER_BUTTTON_CLASS)
+    burgerMenu.classList.add(ACTIVE_BURGER_MENU_CLASS)
+    document.body.style.overflow = "hidden";
+  })
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  initSwiper()
+  initBurger()
 })
