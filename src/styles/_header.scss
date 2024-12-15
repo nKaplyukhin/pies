@@ -1,5 +1,5 @@
 .header {
-  padding: .5rem 0;
+  padding: 0.5rem 0;
   position: sticky;
   top: 0;
   background-color: #fff;
@@ -22,7 +22,7 @@
 
   @include mobile {
     position: fixed;
-    padding: .5rem;
+    padding: 0.5rem;
     bottom: 0;
     left: 0;
     right: 0;
@@ -39,7 +39,7 @@
       display: grid;
       grid-template-columns: repeat(5, 1fr);
       max-width: 800px;
-      gap: .5rem;
+      gap: 0.5rem;
     }
   }
 
@@ -64,13 +64,13 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: .2rem;
+    gap: 0.2rem;
   }
 
   &__link-text {
     @include mobile {
       font-weight: bold;
-      font-size: .5rem;
+      font-size: 0.5rem;
     }
   }
 
@@ -84,7 +84,6 @@
     }
   }
 }
-
 
 .burger {
   display: none;
@@ -106,12 +105,12 @@
       left: 0rem;
       right: 0;
       background-color: $brown-color;
-      height: .3rem;
-      transition: all .3s ease-out;
+      height: 0.3rem;
+      transition: all 0.3s ease-out;
     }
 
     &::after {
-      bottom: 0rem
+      bottom: 0rem;
     }
 
     &::before {
@@ -136,7 +135,7 @@
         bottom: 0;
         left: 0;
         background-color: $brown-color;
-        height: .3rem;
+        height: 0.3rem;
       }
 
       &::after {
@@ -147,47 +146,47 @@
         transform: rotate(-40deg);
       }
     }
-
   }
 
   &__button-item {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    left: .5rem;
+    left: 0.5rem;
     right: 0;
-    height: .3rem;
+    height: 0.3rem;
     background-color: $brown-color;
-    transition: all .3s ease-out;
+    transition: all 0.3s ease-out;
   }
 }
 
 .burger-menu {
+  pointer-events: none;
   position: fixed;
   opacity: 0;
   left: 0;
   top: 0;
   bottom: 0;
   right: 0;
-  background-color: $green-color+e9;
-  transition: .3s ease-out;
+  background-color: $green-color + e9;
+  transition: 0.3s ease-out;
 
   &__list {
-
     width: 80%;
     height: 100%;
     background-color: #fff;
-    padding: .5rem;
+    padding: 0.5rem;
     display: flex;
     flex-direction: column;
     gap: 1rem;
     font-size: 1rem;
     transform: scaleX(0);
-    transition: .3s ease-out;
+    transition: 0.3s ease-out;
     transform-origin: left;
   }
 
   &_active {
+    pointer-events: initial;
     opacity: 1;
     & .burger-menu__list {
       transform: scaleX(1);
