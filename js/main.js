@@ -9470,16 +9470,30 @@ function EffectCards(_ref) {
 
 
 
-const BURGER_BUTTTON_CLASS = "burger__button"
-const ACTIVE_BURGER_BUTTTON_CLASS = "burger__button_active"
+const BURGER_BUTTTON_CLASS = "burger__button";
+const ACTIVE_BURGER_BUTTTON_CLASS = "burger__button_active";
 
-const BURGER_MENU_CLASS = "burger-menu"
-const ACTIVE_BURGER_MENU_CLASS = "burger-menu_active"
+const BURGER_MENU_CLASS = "burger-menu";
+const ACTIVE_BURGER_MENU_CLASS = "burger-menu_active";
 
-const SWIPER_CLASS = "collection__swiper"
+const SWIPER_CLASS = "collection__swiper";
+const COLLECTION_ITEM_CLASS = "collection__item";
+const COLLECTION_IMAGE_CLASS = "collection__image";
 
-const addDotToClassName = (className) => `.${className}`
-const classSelector = (className) => document.querySelector(addDotToClassName(className))
+const IMAGE_MODAL_CLASS = "image-modal";
+const IMAGE_MODAL_ACTIVE_CLASS = `${IMAGE_MODAL_CLASS}_active`;
+
+const IMAGE_MODAL_ITEM_CLASS = "image-modal__item";
+
+const addDotToClassName = (className) => `.${className}`;
+const classSelector = (className, parent) =>
+  parent
+    ? parent.querySelector(addDotToClassName(className))
+    : document.querySelector(addDotToClassName(className));
+const classSelectorAll = (className, parent) =>
+  parent
+    ? parent.querySelector(addDotToClassName(className))
+    : document.querySelectorAll(addDotToClassName(className));
 
 const initSwiper = () => {
   new Swiper(addDotToClassName(SWIPER_CLASS), {
@@ -9499,31 +9513,57 @@ const initSwiper = () => {
       delay: 3000,
     },
   });
-
-}
+};
 
 const initBurger = () => {
-  const burgerButton = classSelector(BURGER_BUTTTON_CLASS)
-  const burgerMenu = classSelector(BURGER_MENU_CLASS)
+  const burgerButton = classSelector(BURGER_BUTTTON_CLASS);
+  const burgerMenu = classSelector(BURGER_MENU_CLASS);
 
   burgerButton.addEventListener("click", (e) => {
     if (burgerButton.classList.contains(ACTIVE_BURGER_BUTTTON_CLASS)) {
-      burgerButton.classList.remove(ACTIVE_BURGER_BUTTTON_CLASS)
-      burgerMenu.classList.remove(ACTIVE_BURGER_MENU_CLASS)
+      burgerButton.classList.remove(ACTIVE_BURGER_BUTTTON_CLASS);
+      burgerMenu.classList.remove(ACTIVE_BURGER_MENU_CLASS);
       document.body.style.overflow = null;
-      return
+      return;
     }
 
-    burgerButton.classList.add(ACTIVE_BURGER_BUTTTON_CLASS)
-    burgerMenu.classList.add(ACTIVE_BURGER_MENU_CLASS)
+    burgerButton.classList.add(ACTIVE_BURGER_BUTTTON_CLASS);
+    burgerMenu.classList.add(ACTIVE_BURGER_MENU_CLASS);
     document.body.style.overflow = "hidden";
-  })
-}
+  });
+};
+
+const openImageModal = (src) => {
+  const modal = classSelector(IMAGE_MODAL_CLASS);
+  const image = classSelector(IMAGE_MODAL_ITEM_CLASS, modal);
+
+  modal.classList.add(IMAGE_MODAL_ACTIVE_CLASS);
+  modal.addEventListener("click", (e) => {
+    if (e.target.className.includes(IMAGE_MODAL_ITEM_CLASS)) {
+      return;
+    }
+    modal.classList.remove(IMAGE_MODAL_ACTIVE_CLASS);
+  });
+
+  image.src = src;
+
+  modal.append(image);
+};
+
+const collectionImages = classSelectorAll(COLLECTION_ITEM_CLASS);
+
+collectionImages.forEach((item) => {
+  item.addEventListener("click", () => {
+    const image = classSelector(COLLECTION_IMAGE_CLASS, item);
+    openImageModal(image.src);
+  });
+});
 
 document.addEventListener("DOMContentLoaded", () => {
-  initSwiper()
-  initBurger()
-})
+  initSwiper();
+  initBurger();
+});
+
 /******/ })()
 ;
 //# sourceMappingURL=main.js.map
