@@ -61,9 +61,17 @@ ul {
   list-style-type: none;
 }
 
+.main-title {
+  font-size: 2rem;
+  text-transform: uppercase;
+}
+
 .title {
   font-size: 2rem;
   text-transform: uppercase;
+  text-align: center;
+  color: $brown-color;
+  font-family: Forum;
 }
 
 .link {
@@ -120,3 +128,5 @@ ul {
 @import "./header";
 @import "./hero";
 @import "./collection";
+@import "./reviews";
+@import "./contacts";
