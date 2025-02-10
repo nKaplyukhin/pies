@@ -1,0 +1,63 @@
+.about-me {
+  background-color: $light-yellow-color;
+  &__title {
+    padding: 3rem 0;
+    @include mobile {
+      padding: 1rem 0;
+    }
+  }
+  &__content {
+    display: flex;
+    gap: 3%;
+    flex-wrap: wrap;
+    @include mobile {
+      flex-direction: column-reverse;
+      gap: 1rem;
+    }
+  }
+  &__block {
+    width: 48.5%;
+    position: relative;
+    @include mobile {
+      width: 100%;
+      overflow: auto;
+    }
+  }
+  &__swiper {
+    position: absolute;
+    top: -50%;
+    right: 0;
+    width: 100%;
+    overflow: hidden;
+    @include mobile {
+      position: relative;
+      height: 50vh;
+    }
+  }
+}
+
+.about-me-description {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+  @include mobile {
+    gap: 2rem;
+  }
+  &__title {
+    font-size: 1.5rem;
+    padding-left: 0.5rem;
+  }
+  &__text {
+    padding-left: 0.5rem;
+    font-size: 1.3rem;
+    color: $gray-color;
+    &_black {
+      color: black;
+    }
+    &_gold {
+      padding: 1rem 0.5rem;
+      background-color: $gold-color;
+      color: #fff;
+    }
+  }
+}

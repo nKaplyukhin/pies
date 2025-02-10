@@ -1,42 +1,70 @@
 .reviews {
-  background-color: $light-yellow-color;
+  background-color: $white-color;
   &__title {
     padding: 3rem 0;
+    @include mobile {
+      padding: 1rem 0;
+    }
   }
-  &__content {
+  &__description {
+    text-align: center;
+  }
+  &__description {
+    text-align: center;
+    margin-bottom: 2rem;
+    @include mobile {
+      margin-bottom: 0m;
+    }
+  }
+  &__swiper {
+    padding: 2rem 0;
+    position: relative;
+    // max-width: 1800px;
+    @include mobile {
+      padding: 1rem 0;
+    }
+  }
+  &__swiper-slide {
+    border-radius: 1rem;
+    overflow: hidden;
+    aspect-ratio: 1 / 1.2;
+  }
+  &__swiper-image {
+    pointer-events: none;
+    object-fit: contain;
+  }
+  &__swiper-text {
+    position: absolute;
+    color: #fff;
+    left: 50%;
+    top: 50%;
+    font-size: 2rem;
+    text-transform: uppercase;
+    z-index: 100;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    @include mobile {
+      font-size: 1.5rem;
+    }
+  }
+  &__list {
     display: flex;
-    gap: 3rem;
+    flex-wrap: wrap;
+    gap: 3%;
   }
-  &__block {
-    width: 50%;
-  }
-  &__image-block {
-    background-image: url(../assets/images/hero-image.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-  }
-}
-
-.reviews-description {
-  display: flex;
-  flex-direction: column;
-  gap: 5rem;
-  &__title {
-    font-size: 1.5rem;
-    padding-left: 0.5rem;
+  &__item {
+    flex: 0 0 31.3%;
+    position: relative;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    @include mobile {
+      flex: 0 0 48.5%;
+    }
   }
   &__text {
-    padding-left: 0.5rem;
-    font-size: 1.3rem;
-    color: $gray-color;
-    &_black {
-      color: black;
-    }
-    &_gold {
-      padding: 1rem 0.5rem;
-      background-color: $gold-color;
-      color: #fff;
-    }
+    font-size: 1rem;
   }
 }

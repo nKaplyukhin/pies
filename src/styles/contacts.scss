@@ -1,19 +1,15 @@
 .contacts {
+  padding: 3rem 0;
   background-color: $light-yellow-color;
   &__title {
-    padding: 3rem 0;
+    padding-bottom: 3rem;
   }
   &__content {
     display: flex;
+    gap: 4rem;
   }
   &__block {
     width: 50%;
-  }
-  &__image-block {
-    background-image: url(../assets/images/hero-image.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
   }
 }
 
@@ -36,6 +32,33 @@
       padding: 1rem 0.5rem;
       background-color: $gold-color;
       color: #fff;
+    }
+  }
+}
+
+.social {
+  display: flex;
+  justify-content: space-between;
+  &__block {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 1.3rem;
+    color: $gray-color;
+    padding-left: 2rem;
+  }
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    & svg {
+      width: 1.2rem;
+      height: 1.2rem;
     }
   }
 }

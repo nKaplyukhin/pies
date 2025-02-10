@@ -1,0 +1,63 @@
+.footer {
+  padding: 3rem 0;
+  background-color: $light-yellow-color;
+  border-top: 3px solid $gold-color;
+  &__logo {
+    width: 20rem;
+    height: 10rem;
+    object-fit: contain;
+    margin-bottom: 2rem;
+  }
+  &__block {
+    display: flex;
+    gap: 5rem;
+    margin-bottom: 2rem;
+  }
+  &__info {
+    width: 40%;
+  }
+  &__row {
+    width: 60%;
+    display: flex;
+    gap: 5rem;
+  }
+  &__social-list {
+    display: flex;
+    gap: 1rem;
+  }
+  &__social-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.7rem;
+    border-radius: 50%;
+    border: 1px solid $green-color;
+    width: 3rem;
+    height: 3rem;
+  }
+  &__list {
+    text-transform: uppercase;
+    color: $gray-color;
+    font-size: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  &__item {
+    &_title {
+      margin-bottom: 0.7rem;
+      color: black;
+      font-size: 1.5rem;
+    }
+  }
+
+  &__text {
+    text-align: center;
+    color: $gray-color;
+    font-size: 1.2rem;
+    font-weight: bold;
+    &:first-of-type {
+      margin-bottom: 2rem;
+    }
+  }
+}

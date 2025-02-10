@@ -8,14 +8,18 @@ const ACTIVE_BURGER_BUTTTON_CLASS = "burger__button_active";
 const BURGER_MENU_CLASS = "burger-menu";
 const ACTIVE_BURGER_MENU_CLASS = "burger-menu_active";
 
-const SWIPER_CLASS = "collection__swiper";
+const COLLECTION_SWIPER_CLASS = "collection__swiper";
 const COLLECTION_ITEM_CLASS = "collection__item";
 const COLLECTION_IMAGE_CLASS = "collection__image";
+
+const REVIEWS_SWIPER_CLASS = "reviews__swiper";
 
 const IMAGE_MODAL_CLASS = "image-modal";
 const IMAGE_MODAL_ACTIVE_CLASS = `${IMAGE_MODAL_CLASS}_active`;
 
 const IMAGE_MODAL_ITEM_CLASS = "image-modal__item";
+
+const ABOUT_ME_SWIPER_CLASS = "about-me__swiper";
 
 const addDotToClassName = (className) => `.${className}`;
 const classSelector = (className, parent) =>
@@ -27,8 +31,8 @@ const classSelectorAll = (className, parent) =>
     ? parent.querySelector(addDotToClassName(className))
     : document.querySelectorAll(addDotToClassName(className));
 
-const initSwiper = () => {
-  new Swiper(addDotToClassName(SWIPER_CLASS), {
+const initSwipers = () => {
+  new Swiper(addDotToClassName(COLLECTION_SWIPER_CLASS), {
     modules: [Autoplay],
     loop: true,
 
@@ -41,6 +45,33 @@ const initSwiper = () => {
       },
     },
 
+    autoplay: {
+      delay: 3000,
+    },
+  });
+
+  new Swiper(addDotToClassName(REVIEWS_SWIPER_CLASS), {
+    modules: [Autoplay],
+    loop: true,
+
+    slidesPerView: 3,
+    spaceBetween: 5,
+    breakpoints: {
+      1024: {
+        spaceBetween: 16,
+        slidesPerView: 5,
+      },
+    },
+
+    autoplay: {
+      delay: 3000,
+    },
+  });
+
+  new Swiper(addDotToClassName(ABOUT_ME_SWIPER_CLASS), {
+    modules: [Autoplay],
+    loop: true,
+    slidesPerView: 1,
     autoplay: {
       delay: 3000,
     },
@@ -92,6 +123,6 @@ collectionImages.forEach((item) => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-  initSwiper();
+  initSwipers();
   initBurger();
 });
