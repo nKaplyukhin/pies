@@ -1,19 +1,63 @@
 .header {
-  padding: 0.5rem 0;
   position: sticky;
   top: 0;
   background-color: #fff;
   z-index: 100;
 
   &__container {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: relative;
+    position: relative;
+    &::before {
+      content: "";
+      position: absolute;
+      background-color: $yellow-color;
+      height: 1px;
+      bottom: 0;
+      right: 0.5rem;
+      left: 0.5rem;
+    }
   }
 
   &__logo {
-    width: 10rem;
+    width: 7rem;
+  }
+
+  &__link {
+    font-size: 1rem;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: $brown-color;
+  }
+
+  &__block {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  &__social-list {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    @include mobile {
+      display: none;
+    }
+  }
+
+  &__social-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.4rem;
+    border-radius: 50%;
+    border: 1px solid black;
+    width: 2.2rem;
+    height: 2.2rem;
   }
 }
 
@@ -31,7 +75,7 @@
   &__list {
     display: flex;
     font-size: 1.2rem;
-    gap: 1.5rem;
+    gap: 0.5rem;
     color: $brown-color;
     margin: 0 auto;
 

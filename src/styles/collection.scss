@@ -1,21 +1,20 @@
 .collection-title {
   background-color: $white-color;
-  padding: 3rem 0;
+  padding-top: 3rem;
   @include mobile {
-    padding: 2rem 0;
+    padding-top: 2rem;
   }
   &__text {
-    margin-bottom: 2rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid $yellow-color;
     @include mobile {
-      margin-bottom: 1rem;
+      padding-bottom: 2rem;
     }
-  }
-  &__description {
-    text-align: center;
   }
 }
 
 .collection {
+  padding-top: 0;
   background-color: $white-color;
   &__title {
     padding: 3rem 0;
@@ -30,34 +29,23 @@
       margin-bottom: 2rem;
     }
   }
-  &__swiper {
-    padding: 2rem 0;
-    position: relative;
-    // max-width: 1800px;
-    @include mobile {
-      padding: 1rem 0;
+  &__catalog-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3%;
+    row-gap: 3%;
+  }
+  &__catalog-item {
+    flex: 0 0 22.7%;
+    aspect-ratio: 1 / 1;
+    &:not(:last-child) {
+      margin-bottom: 2rem;
     }
-  }
-  &__swiper-slide {
-    border-radius: 1rem;
-    overflow: hidden;
-    aspect-ratio: 1 / 1.2;
-  }
-  &__swiper-image {
-    pointer-events: none;
-  }
-  &__swiper-text {
-    position: absolute;
-    color: #fff;
-    left: 50%;
-    top: 50%;
-    font-size: 2rem;
-    text-transform: uppercase;
-    z-index: 100;
-    transform: translate(-50%, -50%);
-    pointer-events: none;
     @include mobile {
-      font-size: 1.5rem;
+      flex: 0 0 48.5%;
+      &:not(:last-child) {
+        margin-bottom: 2rem;
+      }
     }
   }
   &__list {
@@ -94,12 +82,11 @@
 .collection-nav {
   position: sticky;
   background-color: $white-color;
-  top: 100px;
+  top: 76px;
   z-index: 10;
-  padding: 1rem 0;
-  border-bottom: 2px solid $yellow-color;
+  padding: 3rem 0;
   @include mobile {
-    padding: 1rem 0;
+    padding: 2rem 0;
   }
   &__list {
     display: flex;
@@ -112,12 +99,13 @@
   }
   &__item {
     position: relative;
+    padding-left: 10px;
     &::after {
       content: "";
       position: absolute;
       width: 5px;
       height: 5px;
-      left: -10px;
+      left: 0;
       background-color: #d4d3d2;
       top: 50%;
       transform: translateY(-50%);

@@ -1,29 +1,51 @@
 .footer {
   padding: 3rem 0;
+  margin-bottom: 4rem;
   background-color: $light-yellow-color;
   border-top: 3px solid $gold-color;
   &__logo {
     width: 20rem;
     height: 10rem;
     object-fit: contain;
-    margin-bottom: 2rem;
+    @include mobile {
+      width: 15rem;
+    }
   }
   &__block {
     display: flex;
     gap: 5rem;
     margin-bottom: 2rem;
+    @include mobile {
+      flex-direction: column-reverse;
+    }
   }
   &__info {
     width: 40%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    @include mobile {
+      width: 100%;
+      flex-direction: column-reverse;
+      gap: 1rem;
+      align-items: center;
+    }
   }
   &__row {
     width: 60%;
     display: flex;
     gap: 5rem;
+    @include mobile {
+      width: 100%;
+      gap: 2rem;
+    }
   }
   &__social-list {
     display: flex;
     gap: 1rem;
+    @include mobile {
+      gap: 3rem;
+    }
   }
   &__social-item {
     display: flex;
@@ -42,12 +64,20 @@
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    @include mobile {
+      font-size: 0.8rem;
+    }
   }
   &__item {
     &_title {
-      margin-bottom: 0.7rem;
       color: black;
       font-size: 1.5rem;
+      &-bottom {
+        margin-top: auto;
+      }
+      @include mobile {
+        font-size: 1rem;
+      }
     }
   }
 
@@ -56,6 +86,9 @@
     color: $gray-color;
     font-size: 1.2rem;
     font-weight: bold;
+    @include mobile {
+      font-size: 1rem;
+    }
     &:first-of-type {
       margin-bottom: 2rem;
     }

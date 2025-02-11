@@ -1,4 +1,5 @@
 .hero {
+  padding-bottom: 2rem;
   &__container {
     display: flex;
     flex-direction: column;
@@ -6,64 +7,34 @@
   }
 
   &__block {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 1rem;
+    padding: 1rem 0;
+    padding-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid $yellow-color;
     @include mobile {
-      grid-template-columns: 1fr;
-      grid-template-rows: 60vw;
+      flex-direction: column;
     }
   }
-  &__item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    @include mobile {
-      grid-row: 2 / 2;
-    }
+
+  &__button {
+    background-color: transparent;
+    padding: 0.8rem 2rem;
   }
 
   &__title {
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
     font-weight: 400;
-    text-align: left;
-    font-size: 3rem;
+    font-size: 2rem;
     color: $brown-color;
-    &_first {
-      padding-left: 2.5rem;
-    }
-    &_third {
-      text-align: right;
-      transform: translateX(3rem);
-    }
-    @include mobile {
-      display: none;
-    }
   }
 
   &__image {
+    height: 700px;
+    object-fit: cover;
+    object-position: top;
     @include mobile {
-      grid-row: 1 / 2;
+      height: 500px;
     }
-  }
-
-  &__social-list {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-  }
-  &__social-item {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: .7rem;
-    border-radius: 50%;
-    border: 1px solid $green-color;
-    width: 3rem;
-    height: 3rem;
   }
 }

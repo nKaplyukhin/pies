@@ -8,7 +8,6 @@ const ACTIVE_BURGER_BUTTTON_CLASS = "burger__button_active";
 const BURGER_MENU_CLASS = "burger-menu";
 const ACTIVE_BURGER_MENU_CLASS = "burger-menu_active";
 
-const COLLECTION_SWIPER_CLASS = "collection__swiper";
 const COLLECTION_ITEM_CLASS = "collection__item";
 const COLLECTION_IMAGE_CLASS = "collection__image";
 
@@ -32,24 +31,6 @@ const classSelectorAll = (className, parent) =>
     : document.querySelectorAll(addDotToClassName(className));
 
 const initSwipers = () => {
-  new Swiper(addDotToClassName(COLLECTION_SWIPER_CLASS), {
-    modules: [Autoplay],
-    loop: true,
-
-    slidesPerView: 3,
-    spaceBetween: 5,
-    breakpoints: {
-      1024: {
-        spaceBetween: 16,
-        slidesPerView: 5,
-      },
-    },
-
-    autoplay: {
-      delay: 3000,
-    },
-  });
-
   new Swiper(addDotToClassName(REVIEWS_SWIPER_CLASS), {
     modules: [Autoplay],
     loop: true,
