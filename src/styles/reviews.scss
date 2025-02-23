@@ -1,9 +1,9 @@
 .reviews {
   background-color: $white-color;
   &__title {
-    padding: 3rem 0;
+    padding-top: 3rem;
     @include mobile {
-      padding: 1rem 0;
+      padding-top: 1rem;
     }
   }
   &__description {
@@ -12,6 +12,10 @@
   &__description {
     text-align: center;
     margin-bottom: 2rem;
+    font-size: 3.5rem;
+    color: black;
+    font-weight: normal;
+    font-family: WellaAtimboCyrillic;
     @include mobile {
       margin-bottom: 0m;
     }

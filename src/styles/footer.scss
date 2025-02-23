@@ -1,8 +1,12 @@
 .footer {
-  padding: 3rem 0;
-  margin-bottom: 4rem;
   background-color: $light-yellow-color;
-  border-top: 3px solid $gold-color;
+  border-top: 2px solid $gold-color;
+  @include mobile {
+    margin-bottom: 4rem;
+  }
+  &__container {
+    padding: 3rem 0;
+  }
   &__logo {
     width: 20rem;
     height: 10rem;
@@ -13,17 +17,19 @@
   }
   &__block {
     display: flex;
-    gap: 5rem;
-    margin-bottom: 2rem;
+    gap: 4rem;
+    margin-bottom: 5rem;
     @include mobile {
       flex-direction: column-reverse;
     }
   }
   &__info {
-    width: 40%;
+    flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
     @include mobile {
       width: 100%;
       flex-direction: column-reverse;
@@ -32,9 +38,9 @@
     }
   }
   &__row {
-    width: 60%;
+    flex: 1;
     display: flex;
-    gap: 5rem;
+    gap: 3rem;
     @include mobile {
       width: 100%;
       gap: 2rem;
@@ -53,14 +59,13 @@
     justify-content: center;
     padding: 0.7rem;
     border-radius: 50%;
-    border: 1px solid $green-color;
+    border: 1px solid $brown-color;
     width: 3rem;
     height: 3rem;
   }
   &__list {
     text-transform: uppercase;
     color: $gray-color;
-    font-size: 1.2rem;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
@@ -69,9 +74,11 @@
     }
   }
   &__item {
+    font-size: 0.9rem;
     &_title {
+      font-size: 1rem;
       color: black;
-      font-size: 1.5rem;
+      font-weight: bold;
       &-bottom {
         margin-top: auto;
       }
@@ -84,13 +91,10 @@
   &__text {
     text-align: center;
     color: $gray-color;
-    font-size: 1.2rem;
     font-weight: bold;
-    @include mobile {
-      font-size: 1rem;
-    }
+    font-size: 0.8rem;
     &:first-of-type {
-      margin-bottom: 2rem;
+      margin-bottom: 1rem;
     }
   }
 }
