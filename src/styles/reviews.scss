@@ -1,11 +1,6 @@
 .reviews {
   background-color: $white-color;
-  &__title {
-    padding-top: 3rem;
-    @include mobile {
-      padding-top: 1rem;
-    }
-  }
+  text-align: center;
   &__description {
     text-align: center;
   }

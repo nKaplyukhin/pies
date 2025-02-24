@@ -5,6 +5,7 @@
     padding: 2rem 0;
   }
   &__title {
+    background-color: $light-yellow-color;
     margin-bottom: 3rem;
     @include mobile {
       margin-bottom: 2rem;
@@ -23,6 +24,7 @@
     width: 48.5%;
     position: relative;
     overflow: hidden;
+    height: 30rem;
     @include mobile {
       width: 100%;
       overflow: auto;
@@ -30,7 +32,6 @@
   }
   &__swiper {
     position: absolute;
-    top: -50%;
     right: 0;
     width: 100%;
     overflow: hidden;
@@ -42,18 +43,18 @@
 }
 
 .about-me-description {
+  height: auto;
   display: flex;
   flex-direction: column;
-  gap: 5rem;
+  justify-content: center;
+  gap: 3rem;
   @include mobile {
-    gap: 2rem;
+    gap: 1rem;
   }
   &__title {
-    font-size: 1.3rem;
     color: black;
   }
   &__text {
-    font-size: 1.3rem;
     color: $gray-color;
     &_black {
       color: black;

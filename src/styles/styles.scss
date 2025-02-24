@@ -70,11 +70,35 @@ ul {
 }
 
 .title {
-  font-size: 2rem;
   text-transform: uppercase;
-  text-align: center;
   color: $brown-color;
   font-family: Forum;
+  text-align: center;
+  overflow: hidden;
+  &__text {
+    font-weight: normal;
+    background-color: inherit;
+    padding: 0 2rem;
+    display: inline-block;
+    font-size: 2rem;
+    position: relative;
+    z-index: 1;
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      left: 100%;
+      right: -1000000px;
+      top: 50%;
+      height: 1px;
+      background-color: $yellow-color;
+      z-index: -1;
+    }
+    &::after {
+      right: 100%;
+      left: -1000000px;
+    }
+  }
 }
 
 .link {
