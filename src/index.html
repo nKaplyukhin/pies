@@ -24,7 +24,7 @@
                 </a>
               </li>
               <li class="main-nav__item">
-                <a href="#" class="main-nav__link link">
+                <a href="#catalog" class="main-nav__link link">
                   <img
                     src="./assets/images/icons/wedding-cake.png"
                     alt=""
@@ -43,7 +43,9 @@
                   <p class="main-nav__link-text">Начинки</p>
                 </a>
               </li>
-              <li class="main-nav__item main-nav__item_submenu">
+              <li
+                class="main-nav__item main-nav__item_submenu main-nav__item_hide"
+              >
                 <a href="#" class="main-nav__link link">
                   <img
                     src="./assets/images/icons/homepage.png"
@@ -294,7 +296,7 @@
                     </svg>
                   </li>
                 </ul>
-                <p class="burger-contacts__text">Разработка сайта</p>
+                <!-- <p class="burger-contacts__text">Разработка сайта</p> -->
               </div>
             </div>
           </div>
@@ -318,7 +320,7 @@
           />
         </div>
       </section>
-      <div class="collection-title">
+      <div id="catalog" class="collection-title">
         <div class="container">
           <div class="title collection-title__text">
             <h2 class="title__text">КАТАЛОГ</h2>
@@ -413,6 +415,63 @@
                 class="collection__swiper-image"
               />
             </div>
+
+            <div class="swiper-slide collection__swiper-slide">
+              <img
+                src="./assets/images/10.jpg"
+                alt=""
+                class="collection__swiper-image"
+              />
+            </div>
+            <div class="swiper-slide collection__swiper-slide">
+              <img
+                src="./assets/images/11.jpg"
+                alt=""
+                class="collection__swiper-image"
+              />
+            </div>
+            <div class="swiper-slide collection__swiper-slide">
+              <img
+                src="./assets/images/12.jpg"
+                alt=""
+                class="collection__swiper-image"
+              />
+            </div>
+            <div class="swiper-slide collection__swiper-slide">
+              <img
+                src="./assets/images/13.jpg"
+                alt=""
+                class="collection__swiper-image"
+              />
+            </div>
+            <div class="swiper-slide collection__swiper-slide">
+              <img
+                src="./assets/images/14.jpg"
+                alt=""
+                class="collection__swiper-image"
+              />
+            </div>
+            <div class="swiper-slide collection__swiper-slide">
+              <img
+                src="./assets/images/15.jpg"
+                alt=""
+                class="collection__swiper-image"
+              />
+            </div>
+            <div class="swiper-slide collection__swiper-slide">
+              <img
+                src="./assets/images/16.jpg"
+                alt=""
+                class="collection__swiper-image"
+              />
+            </div>
+            <div class="swiper-slide collection__swiper-slide">
+              <img
+                src="./assets/images/17.jpg"
+                alt=""
+                class="collection__swiper-image"
+              />
+            </div>
           </div>
         </div>
 
@@ -421,7 +480,7 @@
             <h2 class="title__text">НАЧИНКИ</h2>
           </div>
           <h3 class="description collection__description">
-            откройте свое идеальное сочетание, попробовав нашу коллекцию вкусов
+            найдите свое идеальное сочетание вкуса и текстур
           </h3>
           <ul class="collection__list">
             <li class="collection__item">
@@ -953,12 +1012,12 @@
               <li class="footer__item">бенто-торт</li>
               <li class="footer__item">торт-бомба</li>
               <li class="footer__item">ярусные торты</li>
-              <li class="footer__item">ПРАЗДНИЧНЫЕ ПРЕДЛОЖЕНИЯ</li>
               <li class="footer__item">ДЕВОЧКЕ</li>
               <li class="footer__item">МАЛЬЧИКУ</li>
               <li class="footer__item">ЖЕНСКИЙ</li>
               <li class="footer__item">МУЖСКОЙ</li>
               <li class="footer__item">ДЕСЕРТЫ</li>
+              <li class="footer__item">ПРАЗДНИЧНЫЕ ПРЕДЛОЖЕНИЯ</li>
             </ul>
             <ul class="footer__list">
               <li
@@ -980,14 +1039,20 @@
           запрещены для копирования
         </p>
         <p class="footer__text">
-          *<strong>META</strong> Признана экстремистской организацией, ее
+          *<strong>META</strong> признана экстремистской организацией, ее
           деятельность на территории РФ запрещена
         </p>
       </div>
     </footer>
 
     <div class="image-modal">
+      <button class="image-modal__button image-modal__button_back">
+        &#10094;
+      </button>
       <img class="image-modal__item" draggable="false" />
+      <button class="image-modal__button image-modal__button_forward">
+        &#10095;
+      </button>
     </div>
   </body>
 </html>

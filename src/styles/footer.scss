@@ -1,11 +1,19 @@
 .footer {
+  position: relative;
   background-color: $light-yellow-color;
-  border-top: 2px solid $gold-color;
+  padding: 3rem 0;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    height: 2px;
+    background-color: $gold-color;
+  }
   @include mobile {
     margin-bottom: 4rem;
-  }
-  &__container {
-    padding: 3rem 0;
   }
   &__logo {
     width: 20rem;
@@ -21,6 +29,8 @@
     margin-bottom: 5rem;
     @include mobile {
       flex-direction: column-reverse;
+      gap: 1rem;
+      margin-bottom: 2rem;
     }
   }
   &__info {
@@ -32,7 +42,7 @@
     gap: 1rem;
     @include mobile {
       width: 100%;
-      flex-direction: column-reverse;
+      flex-direction: column;
       gap: 1rem;
       align-items: center;
     }
@@ -77,6 +87,7 @@
     }
   }
   &__list {
+    width: 100%;
     text-transform: uppercase;
     color: $gray-color;
     display: flex;

@@ -53,6 +53,11 @@
   }
   &__title {
     color: black;
+    font-weight: normal;
+    @include mobile {
+      font-size: 1rem;
+      text-align: center;
+    }
   }
   &__text {
     color: $gray-color;
@@ -63,6 +68,10 @@
       padding: 1rem 0.5rem;
       background-color: $gold-color;
       color: #fff;
+    }
+    @include mobile {
+      font-size: 1rem;
+      text-align: center;
     }
   }
 }

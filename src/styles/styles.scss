@@ -98,6 +98,11 @@ ul {
       right: 100%;
       left: -1000000px;
     }
+
+    @include mobile {
+      font-size: 1.7rem;
+      padding: 0 1rem;
+    }
   }
 }
 
@@ -138,10 +143,29 @@ ul {
   &__item {
     user-select: none;
     max-width: 700px;
+    height: auto;
     max-height: 1000px;
     transform: scale(0);
     transition: all 0.3s ease-out;
     object-fit: contain;
+  }
+  &__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    font-size: 2rem;
+    font-weight: bold;
+    transition: 0.3s ease-out;
+    & > span {
+      pointer-events: none;
+    }
+    &:hover {
+      opacity: 0.7;
+    }
   }
   &_active {
     opacity: 1;
@@ -150,6 +174,11 @@ ul {
       transform: scale(1);
     }
   }
+}
+
+.swiper-wrapper {
+  display: flex;
+  transition-timing-function: linear; /* Линейная анимация */
 }
 
 @import "./header";

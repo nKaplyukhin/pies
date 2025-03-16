@@ -15,8 +15,10 @@ const COLLECTION_IMAGE_CLASS = "collection__image";
 const REVIEWS_SWIPER_CLASS = "reviews__swiper";
 
 const IMAGE_MODAL_CLASS = "image-modal";
+const IMAGE_MODAL_BUTTON_CLASS = "image-modal__button";
+const IMAGE_MODAL_BUTTON_BACK_CLASS = `${IMAGE_MODAL_BUTTON_CLASS}_back`;
+const IMAGE_MODAL_BUTTON_FORWARD_CLASS = `${IMAGE_MODAL_BUTTON_CLASS}_forward`;
 const IMAGE_MODAL_ACTIVE_CLASS = `${IMAGE_MODAL_CLASS}_active`;
-
 const IMAGE_MODAL_ITEM_CLASS = "image-modal__item";
 
 const ABOUT_ME_SWIPER_CLASS = "about-me__swiper";
@@ -26,53 +28,57 @@ const classSelector = (className, parent) =>
   parent
     ? parent.querySelector(addDotToClassName(className))
     : document.querySelector(addDotToClassName(className));
+
 const classSelectorAll = (className, parent) =>
   parent
-    ? parent.querySelector(addDotToClassName(className))
+    ? parent.querySelectorAll(addDotToClassName(className))
     : document.querySelectorAll(addDotToClassName(className));
 
 const initSwipers = () => {
   new Swiper(addDotToClassName(COLLECTION_SWIPER_CLASS), {
     modules: [Autoplay],
     loop: true,
-
-    slidesPerView: 3,
-    spaceBetween: 5,
+    slidesPerView: 1.5,
+    spaceBetween: 3,
     breakpoints: {
       1024: {
         spaceBetween: 16,
         slidesPerView: 5,
       },
     },
-
+    grabCursor: true,
+    speed: 5000,
     autoplay: {
-      delay: 3000,
+      delay: 1,
+      disableOnInteraction: false,
     },
   });
   new Swiper(addDotToClassName(REVIEWS_SWIPER_CLASS), {
     modules: [Autoplay],
     loop: true,
-
-    slidesPerView: 3,
-    spaceBetween: 5,
+    slidesPerView: 1.5,
+    spaceBetween: 3,
     breakpoints: {
       1024: {
         spaceBetween: 16,
         slidesPerView: 5,
       },
     },
-
+    grabCursor: true,
+    speed: 5000,
     autoplay: {
-      delay: 3000,
+      delay: 1,
+      disableOnInteraction: false,
     },
   });
 
   new Swiper(addDotToClassName(ABOUT_ME_SWIPER_CLASS), {
     modules: [Autoplay],
     loop: true,
+    speed: 2000,
     slidesPerView: 1,
     autoplay: {
-      delay: 3000,
+      delay: 1000,
     },
   });
 };
@@ -95,29 +101,61 @@ const initBurger = () => {
   });
 };
 
-const openImageModal = (src) => {
+const collectionImages = classSelectorAll(COLLECTION_ITEM_CLASS);
+
+const openImageModal = (index) => {
+  let currenImage = classSelector(
+    COLLECTION_IMAGE_CLASS,
+    collectionImages[index]
+  );
+
+  if (!currenImage) {
+    return;
+  }
+
   const modal = classSelector(IMAGE_MODAL_CLASS);
   const image = classSelector(IMAGE_MODAL_ITEM_CLASS, modal);
 
+  let imageIndex = index;
   modal.classList.add(IMAGE_MODAL_ACTIVE_CLASS);
   modal.addEventListener("click", (e) => {
-    if (e.target.className.includes(IMAGE_MODAL_ITEM_CLASS)) {
+    const classList = e.target.classList;
+    let newImage = currenImage;
+
+    if (
+      classList.contains(IMAGE_MODAL_BUTTON_FORWARD_CLASS) &&
+      imageIndex < collectionImages.length - 1
+    ) {
+      imageIndex += 1;
+    }
+    if (classList.contains(IMAGE_MODAL_BUTTON_BACK_CLASS) && imageIndex > 0) {
+      imageIndex -= 1;
+    }
+    newImage = classSelector(
+      COLLECTION_IMAGE_CLASS,
+      collectionImages[imageIndex]
+    );
+
+    if (newImage) {
+      image.src = newImage.src;
+    }
+
+    const isDisable =
+      classList.contains(IMAGE_MODAL_ITEM_CLASS) ||
+      classList.contains(IMAGE_MODAL_BUTTON_CLASS);
+
+    if (isDisable) {
       return;
     }
     modal.classList.remove(IMAGE_MODAL_ACTIVE_CLASS);
   });
 
-  image.src = src;
-
-  modal.append(image);
+  image.src = currenImage.src;
 };
 
-const collectionImages = classSelectorAll(COLLECTION_ITEM_CLASS);
-
-collectionImages.forEach((item) => {
+collectionImages.forEach((item, index) => {
   item.addEventListener("click", () => {
-    const image = classSelector(COLLECTION_IMAGE_CLASS, item);
-    openImageModal(image.src);
+    openImageModal(index);
   });
 });
 
