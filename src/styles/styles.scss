@@ -31,6 +31,7 @@ body {
 a {
   text-decoration: none;
   color: inherit;
+  cursor: pointer;
 }
 
 img {
@@ -187,4 +188,6 @@ ul {
 @import "./about-me";
 @import "./contacts";
 @import "./reviews";
+@import "./information";
+@import "./catalog";
 @import "./footer";

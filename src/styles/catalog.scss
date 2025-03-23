@@ -1,0 +1,119 @@
+.catalog {
+  &__title {
+    position: relative;
+    font-weight: normal;
+    background-color: inherit;
+    padding: 2rem;
+    font-size: 2rem;
+    position: relative;
+    z-index: 1;
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 1px;
+      background-color: $yellow-color;
+    }
+  }
+  &__navigation {
+    position: sticky;
+    top: 76px;
+    z-index: 10;
+    background-color: #fff;
+  }
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    font-weight: bold;
+    text-transform: uppercase;
+    gap: 1rem 1.9rem;
+    justify-content: center;
+    font-size: 0.8rem;
+    color: $brown-color;
+    padding: 2rem 0;
+    padding-bottom: 1rem;
+  }
+  &__item {
+    position: relative;
+    &::after {
+      content: "";
+      position: absolute;
+      width: 5px;
+      height: 5px;
+      left: -1rem;
+      background-color: #d4d3d2;
+      top: 50%;
+      transform: translateY(-50%);
+      border-radius: 50%;
+    }
+  }
+
+  &__inner-list {
+    display: flex;
+    flex-wrap: wrap;
+    font-weight: bold;
+    text-transform: uppercase;
+    gap: 1rem 1.9rem;
+    justify-content: center;
+    font-size: 0.8rem;
+    color: $brown-color;
+    padding: 1rem 0;
+  }
+
+  &__inner-item {
+    position: relative;
+    &::after {
+      content: "";
+      position: absolute;
+      width: 5px;
+      height: 5px;
+      left: -1rem;
+      background-color: #d4d3d2;
+      top: 50%;
+      transform: translateY(-50%);
+      border-radius: 50%;
+    }
+  }
+
+  &__button {
+    background-color: inherit;
+    border: none;
+  }
+
+  &__gallery-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    gap: 20% 2%;
+  }
+  &__gallery-item {
+    flex: 0 0 23.5%;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    position: relative;
+    margin-bottom: 1rem;
+    transition: 0.3s ease-out;
+    &:hover {
+      transform: scale(1.01);
+    }
+    &:last-child {
+      margin-bottom: 0;
+    }
+    @include mobile {
+      flex: 0 0 48.5%;
+      &:not(:last-child) {
+        margin-bottom: 2rem;
+      }
+    }
+  }
+  &__gallery-image {
+    margin-bottom: 1rem;
+    height: 300px;
+    @include mobile {
+      height: 200px;
+    }
+  }
+}

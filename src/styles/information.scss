@@ -1,0 +1,40 @@
+.information {
+  &__title {
+    position: relative;
+    font-weight: normal;
+    background-color: inherit;
+    padding: 2rem;
+    font-size: 2rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  &__block {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 2rem 0;
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      height: 1px;
+      background-color: $yellow-color;
+    }
+  }
+
+  &__subtitle {
+    color: $gold-color;
+    font-weight: normal;
+  }
+
+  &__link {
+    transition: 0.3s ease-out;
+    &:hover {
+      color: $gray-color;
+    }
+  }
+}

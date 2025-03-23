@@ -3,20 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ура торт</title>
+    <title>Каталог</title>
   </head>
-
   <body>
     <header class="header">
       <div class="container header__container">
-        <a href="/">
+        <a href="#">
           <img src="./assets/images/main.svg" alt="" class="header__logo" />
         </a>
         <div class="header__content">
           <nav class="header__nav main-nav">
             <ul class="main-nav__list">
               <li class="main-nav__item">
-                <a href="#" class="main-nav__link link">
+                <a href="./" class="main-nav__link link">
                   <img
                     src="./assets/images/icons/homepage.png"
                     alt=""
@@ -26,7 +25,7 @@
                 </a>
               </li>
               <li class="main-nav__item">
-                <a href="#catalog" class="main-nav__link link">
+                <a href="./#catalog" class="main-nav__link link">
                   <img
                     src="./assets/images/icons/wedding-cake.png"
                     alt=""
@@ -36,7 +35,7 @@
                 </a>
               </li>
               <li class="main-nav__item">
-                <a href="#collection" class="main-nav__link link">
+                <a href="./#collection" class="main-nav__link link">
                   <img
                     src="./assets/images/icons/fruit.png"
                     alt=""
@@ -73,7 +72,7 @@
                 </ul>
               </li>
               <li class="main-nav__item main-nav__item_hide">
-                <a href="#about-me" class="main-nav__link link">
+                <a href="./#about-me" class="main-nav__link link">
                   <img
                     src="./assets/images/icons/homepage.png"
                     alt=""
@@ -83,7 +82,7 @@
                 </a>
               </li>
               <li class="main-nav__item">
-                <a href="#contacts" class="main-nav__link link">
+                <a href="./#contacts" class="main-nav__link link">
                   <img
                     src="./assets/images/icons/message.png"
                     alt=""
@@ -309,622 +308,800 @@
     </header>
 
     <main class="main">
-      <section class="section hero">
-        <div class="container hero__container">
-          <div class="hero__block">
-            <h1 class="hero__title main-title">
-              особый подход к вкусу и декору
-            </h1>
-            <a href="./catalog.html" class="hero__button"
-              >Сладкие предложения</a
-            >
-          </div>
-          <img
-            src="./assets/images/hero-image.jpg"
-            alt=""
-            class="hero__image"
-          />
-        </div>
-      </section>
+      <sectioin class="section catalog">
+        <div class="container catalog__container">
+          <h2 class="title catalog__title">Каталог</h2>
 
-      <div id="catalog" class="collection-title">
-        <div class="container">
-          <div class="title collection-title__text">
-            <h2 class="title__text">КАТАЛОГ</h2>
-          </div>
-          <h3 class="description collection-title__description">
-            выберите из имеющейся коллекции или закажите свой дизайн
-          </h3>
-        </div>
-      </div>
-
-      <section class="section collection">
-        <div class="collection__nav collection-nav">
-          <div class="container collection-nav__container">
-            <ul class="collection-nav__list">
-              <li class="collection-nav__item">
-                <a href="#" class="collection-nav__link link"> ТОРТЫ </a>
+          <div class="catalog__navigation">
+            <ul class="catalog__list">
+              <li class="catalog__item">
+                <button class="catalog__button link" data-link="cake">
+                  ТОРТЫ
+                </button>
               </li>
-              <li class="collection-nav__item">
-                <a href="#" class="collection-nav__link link">ДЕСЕРТЫ</a>
+              <li class="catalog__item">
+                <button class="catalog__button link" data-link="dessert">
+                  ДЕСЕРТЫ
+                </button>
               </li>
-              <li class="collection-nav__item">
-                <a href="#" class="collection-nav__link link">
+              <li class="catalog__item">
+                <button class="catalog__button link" data-link="holiday-offers">
                   ПРАЗДНИЧНЫЕ ПРЕДЛОЖЕНИЯ
-                </a>
+                </button>
+              </li>
+            </ul>
+
+            <ul class="catalog__inner-list">
+              <li class="catalog__inner-item" data-item="cake" data-item="cake">
+                <button
+                  class="catalog__button catalog__inner-button link"
+                  data-link="all"
+                >
+                  ВСЕ
+                </button>
+              </li>
+              <li class="catalog__inner-item" data-item="cake">
+                <button
+                  class="catalog__button catalog__inner-button link"
+                  data-link="bento"
+                >
+                  БЕНТО
+                </button>
+              </li>
+              <li class="catalog__inner-item" data-item="cake">
+                <button
+                  class="catalog__button catalog__inner-button link"
+                  data-link="bomb"
+                >
+                  БОМБА
+                </button>
+              </li>
+              <li class="catalog__inner-item" data-item="cake">
+                <button
+                  class="catalog__button catalog__inner-button link"
+                  data-link=""
+                >
+                  ЯРУСНЫЕ
+                </button>
+              </li>
+              <li class="catalog__inner-item" data-item="cake">
+                <button
+                  class="catalog__button catalog__inner-button link"
+                  data-link=""
+                >
+                  ДЕВОЧКЕ
+                </button>
+              </li>
+              <li class="catalog__inner-item" data-item="cake">
+                <button
+                  class="catalog__button catalog__inner-button link"
+                  data-link=""
+                >
+                  МАЛЬЧИКУ
+                </button>
+              </li>
+              <li class="catalog__inner-item" data-item="cake">
+                <button
+                  class="catalog__button catalog__inner-button link"
+                  data-link=""
+                >
+                  ЖЕНСКИЕ
+                </button>
+              </li>
+              <li class="catalog__inner-item" data-item="cake">
+                <button
+                  class="catalog__button catalog__inner-button link"
+                  data-link=""
+                >
+                  МУЖСКИЕ
+                </button>
+              </li>
+              <li class="catalog__inner-item" data-item="cake">
+                <button
+                  class="catalog__button catalog__inner-button link"
+                  data-link=""
+                >
+                  МУЖСКИЕ
+                </button>
+              </li>
+              <li class="catalog__inner-item" data-item="cake">
+                <button
+                  class="catalog__button catalog__inner-button link"
+                  data-link=""
+                >
+                  НАЧИНКИ
+                </button>
               </li>
             </ul>
           </div>
-        </div>
-        <div class="swiper collection__swiper">
-          <div class="swiper-wrapper collection__swiper-wrapper">
-            <div class="swiper-slide collection__swiper-slide">
-              <img
-                src="./assets/images/1.jpg"
-                alt=""
-                class="collection__swiper-image"
-              />
-            </div>
-            <div class="swiper-slide collection__swiper-slide">
-              <img
-                src="./assets/images/2.jpg"
-                alt=""
-                class="collection__swiper-image"
-              />
-            </div>
-            <div class="swiper-slide collection__swiper-slide">
-              <img
-                src="./assets/images/3.jpg"
-                alt=""
-                class="collection__swiper-image"
-              />
-            </div>
-            <div class="swiper-slide collection__swiper-slide">
-              <img
-                src="./assets/images/4.jpg"
-                alt=""
-                class="collection__swiper-image"
-              />
-            </div>
-            <div class="swiper-slide collection__swiper-slide">
-              <img
-                src="./assets/images/5.jpg"
-                alt=""
-                class="collection__swiper-image"
-              />
-            </div>
-            <div class="swiper-slide collection__swiper-slide">
-              <img
-                src="./assets/images/6.jpg"
-                alt=""
-                class="collection__swiper-image"
-              />
-            </div>
-            <div class="swiper-slide collection__swiper-slide">
-              <img
-                src="./assets/images/7.jpg"
-                alt=""
-                class="collection__swiper-image"
-              />
-            </div>
-            <div class="swiper-slide collection__swiper-slide">
-              <img
-                src="./assets/images/8.jpg"
-                alt=""
-                class="collection__swiper-image"
-              />
-            </div>
-            <div class="swiper-slide collection__swiper-slide">
-              <img
-                src="./assets/images/9.jpg"
-                alt=""
-                class="collection__swiper-image"
-              />
-            </div>
 
-            <div class="swiper-slide collection__swiper-slide">
+          <ul class="catalog__gallery-list">
+            <!-- bento -->
+            <li class="catalog__gallery-item" data-link="all,bento">
               <img
-                src="./assets/images/10.jpg"
+                src="./assets/images/bento/0.JPG"
+                draggable="false"
                 alt=""
-                class="collection__swiper-image"
+                class="catalog__gallery-image"
               />
-            </div>
-            <div class="swiper-slide collection__swiper-slide">
+            </li>
+            <li class="catalog__gallery-item" data-link="all,bento">
               <img
-                src="./assets/images/11.jpg"
+                src="./assets/images/bento/1.JPG"
+                draggable="false"
                 alt=""
-                class="collection__swiper-image"
+                class="catalog__gallery-image"
               />
-            </div>
-            <div class="swiper-slide collection__swiper-slide">
+            </li>
+            <li class="catalog__gallery-item" data-link="all,bento">
               <img
-                src="./assets/images/12.jpg"
+                src="./assets/images/bento/2.JPG"
+                draggable="false"
                 alt=""
-                class="collection__swiper-image"
+                class="catalog__gallery-image"
               />
-            </div>
-            <div class="swiper-slide collection__swiper-slide">
+            </li>
+            <li class="catalog__gallery-item" data-link="all,bento">
               <img
-                src="./assets/images/13.jpg"
+                src="./assets/images/bento/3.JPG"
+                draggable="false"
                 alt=""
-                class="collection__swiper-image"
+                class="catalog__gallery-image"
               />
-            </div>
-            <div class="swiper-slide collection__swiper-slide">
+            </li>
+            <li class="catalog__gallery-item" data-link="all,bento">
               <img
-                src="./assets/images/14.jpg"
+                src="./assets/images/bento/4.JPG"
+                draggable="false"
                 alt=""
-                class="collection__swiper-image"
+                class="catalog__gallery-image"
               />
-            </div>
-            <div class="swiper-slide collection__swiper-slide">
+            </li>
+            <li class="catalog__gallery-item" data-link="all,bento">
               <img
-                src="./assets/images/15.jpg"
+                src="./assets/images/bento/5.JPG"
+                draggable="false"
                 alt=""
-                class="collection__swiper-image"
+                class="catalog__gallery-image"
               />
-            </div>
-            <div class="swiper-slide collection__swiper-slide">
+            </li>
+            <li class="catalog__gallery-item" data-link="all,bento">
               <img
-                src="./assets/images/16.jpg"
+                src="./assets/images/bento/6.JPG"
+                draggable="false"
                 alt=""
-                class="collection__swiper-image"
+                class="catalog__gallery-image"
               />
-            </div>
-            <div class="swiper-slide collection__swiper-slide">
+            </li>
+            <li class="catalog__gallery-item" data-link="all,bento">
               <img
-                src="./assets/images/17.jpg"
+                src="./assets/images/bento/7.JPG"
+                draggable="false"
                 alt=""
-                class="collection__swiper-image"
+                class="catalog__gallery-image"
               />
-            </div>
-          </div>
-        </div>
+            </li>
+            <li class="catalog__gallery-item" data-link="all,bento">
+              <img
+                src="./assets/images/bento/8.JPG"
+                draggable="false"
+                alt=""
+                class="catalog__gallery-image"
+              />
+            </li>
+            <li class="catalog__gallery-item" data-link="all,bento">
+              <img
+                src="./assets/images/bento/9.JPG"
+                draggable="false"
+                alt=""
+                class="catalog__gallery-image"
+              />
+            </li>
+            <li class="catalog__gallery-item" data-link="all,bento">
+              <img
+                src="./assets/images/bento/10.JPG"
+                draggable="false"
+                alt=""
+                class="catalog__gallery-image"
+              />
+            </li>
+            <li class="catalog__gallery-item" data-link="all,bento">
+              <img
+                src="./assets/images/bento/11.JPG"
+                draggable="false"
+                alt=""
+                class="catalog__gallery-image"
+              />
+            </li>
+            <li class="catalog__gallery-item" data-link="all,bento">
+              <img
+                src="./assets/images/bento/12.JPG"
+                draggable="false"
+                alt=""
+                class="catalog__gallery-image"
+              />
+            </li>
+            <li class="catalog__gallery-item" data-link="all,bento">
+              <img
+                src="./assets/images/bento/13.JPG"
+                draggable="false"
+                alt=""
+                class="catalog__gallery-image"
+              />
+            </li>
+            <li class="catalog__gallery-item" data-link="all,bento">
+              <img
+                src="./assets/images/bento/14.JPG"
+                draggable="false"
+                alt=""
+                class="catalog__gallery-image"
+              />
+            </li>
+            <li class="catalog__gallery-item" data-link="all,bento">
+              <img
+                src="./assets/images/bento/15.JPG"
+                draggable="false"
+                alt=""
+                class="catalog__gallery-image"
+              />
+            </li>
+            <li class="catalog__gallery-item" data-link="all,bento">
+              <img
+                src="./assets/images/bento/16.JPG"
+                draggable="false"
+                alt=""
+                class="catalog__gallery-image"
+              />
+            </li>
+            <li class="catalog__gallery-item" data-link="all,bento">
+              <img
+                src="./assets/images/bento/17.JPG"
+                draggable="false"
+                alt=""
+                class="catalog__gallery-image"
+              />
+            </li>
+            <li class="catalog__gallery-item" data-link="all,bento">
+              <img
+                src="./assets/images/bento/18.JPG"
+                draggable="false"
+                alt=""
+                class="catalog__gallery-image"
+              />
+            </li>
+            <li class="catalog__gallery-item" data-link="all,bento">
+              <img
+                src="./assets/images/bento/19.JPG"
+                draggable="false"
+                alt=""
+                class="catalog__gallery-image"
+              />
+            </li>
+            <li class="catalog__gallery-item" data-link="all,bento">
+              <img
+                src="./assets/images/bento/20.JPG"
+                draggable="false"
+                alt=""
+                class="catalog__gallery-image"
+              />
+            </li>
+            <li class="catalog__gallery-item" data-link="all,bento">
+              <img
+                src="./assets/images/bento/22.JPG"
+                draggable="false"
+                alt=""
+                class="catalog__gallery-image"
+              />
+            </li>
+            <li class="catalog__gallery-item" data-link="all,bento">
+              <img
+                src="./assets/images/bento/23.JPG"
+                draggable="false"
+                alt=""
+                class="catalog__gallery-image"
+              />
+            </li>
+            <li class="catalog__gallery-item" data-link="all,bento">
+              <img
+                src="./assets/images/bento/24.JPG"
+                draggable="false"
+                alt=""
+                class="catalog__gallery-image"
+              />
+            </li>
+            <li class="catalog__gallery-item" data-link="all,bento">
+              <img
+                src="./assets/images/bento/25.JPG"
+                draggable="false"
+                alt=""
+                class="catalog__gallery-image"
+              />
+            </li>
+            <li class="catalog__gallery-item" data-link="all,bento">
+              <img
+                src="./assets/images/bento/26.JPG"
+                draggable="false"
+                alt=""
+                class="catalog__gallery-image"
+              />
+            </li>
+            <li class="catalog__gallery-item" data-link="all,bento">
+              <img
+                src="./assets/images/bento/27.JPG"
+                draggable="false"
+                alt=""
+                class="catalog__gallery-image"
+              />
+            </li>
+            <li class="catalog__gallery-item" data-link="all,bento">
+              <img
+                src="./assets/images/bento/28.JPG"
+                draggable="false"
+                alt=""
+                class="catalog__gallery-image"
+              />
+            </li>
+            <li class="catalog__gallery-item" data-link="all,bento">
+              <img
+                src="./assets/images/bento/29.JPG"
+                draggable="false"
+                alt=""
+                class="catalog__gallery-image"
+              />
+            </li>
+            <li class="catalog__gallery-item" data-link="all,bento">
+              <img
+                src="./assets/images/bento/30.JPG"
+                draggable="false"
+                alt=""
+                class="catalog__gallery-image"
+              />
+            </li>
+            <li class="catalog__gallery-item" data-link="all,bento">
+              <img
+                src="./assets/images/bento/31.JPG"
+                draggable="false"
+                alt=""
+                class="catalog__gallery-image"
+              />
+            </li>
+            <li class="catalog__gallery-item" data-link="all,bento">
+              <img
+                src="./assets/images/bento/32.JPG"
+                draggable="false"
+                alt=""
+                class="catalog__gallery-image"
+              />
+            </li>
+            <li class="catalog__gallery-item" data-link="all,bento">
+              <img
+                src="./assets/images/bento/33.JPG"
+                draggable="false"
+                alt=""
+                class="catalog__gallery-image"
+              />
+            </li>
+            <li class="catalog__gallery-item" data-link="all,bento">
+              <img
+                src="./assets/images/bento/34.JPG"
+                draggable="false"
+                alt=""
+                class="catalog__gallery-image"
+              />
+            </li>
+            <li class="catalog__gallery-item" data-link="all,bento">
+              <img
+                src="./assets/images/bento/35.JPG"
+                draggable="false"
+                alt=""
+                class="catalog__gallery-image"
+              />
+            </li>
+            <li class="catalog__gallery-item" data-link="all,bento">
+              <img
+                src="./assets/images/bento/36.JPG"
+                draggable="false"
+                alt=""
+                class="catalog__gallery-image"
+              />
+            </li>
+            <li class="catalog__gallery-item" data-link="all,bento">
+              <img
+                src="./assets/images/bento/37.JPG"
+                draggable="false"
+                alt=""
+                class="catalog__gallery-image"
+              />
+            </li>
+            <li class="catalog__gallery-item" data-link="all,bento">
+              <img
+                src="./assets/images/bento/38.JPG"
+                draggable="false"
+                alt=""
+                class="catalog__gallery-image"
+              />
+            </li>
+            <li class="catalog__gallery-item" data-link="all,bento">
+              <img
+                src="./assets/images/bento/39.JPG"
+                draggable="false"
+                alt=""
+                class="catalog__gallery-image"
+              />
+            </li>
+            <li class="catalog__gallery-item" data-link="all,bento">
+              <img
+                src="./assets/images/bento/40.JPG"
+                draggable="false"
+                alt=""
+                class="catalog__gallery-image"
+              />
+            </li>
+            <li class="catalog__gallery-item" data-link="all,bento">
+              <img
+                src="./assets/images/bento/41.JPG"
+                draggable="false"
+                alt=""
+                class="catalog__gallery-image"
+              />
+            </li>
+            <li class="catalog__gallery-item" data-link="all,bento">
+              <img
+                src="./assets/images/bento/42.JPG"
+                draggable="false"
+                alt=""
+                class="catalog__gallery-image"
+              />
+            </li>
+            <li class="catalog__gallery-item" data-link="all,bento">
+              <img
+                src="./assets/images/bento/43.JPG"
+                draggable="false"
+                alt=""
+                class="catalog__gallery-image"
+              />
+            </li>
+            <li class="catalog__gallery-item" data-link="all,bento">
+              <img
+                src="./assets/images/bento/44.JPG"
+                draggable="false"
+                alt=""
+                class="catalog__gallery-image"
+              />
+            </li>
+            <li class="catalog__gallery-item" data-link="all,bento">
+              <img
+                src="./assets/images/bento/45.JPG"
+                draggable="false"
+                alt=""
+                class="catalog__gallery-image"
+              />
+            </li>
 
-        <div id="collection" class="container collection__container">
-          <div class="title collection__title">
-            <h2 class="title__text">НАЧИНКИ</h2>
-          </div>
-          <h3 class="description collection__description">
-            найдите свое идеальное сочетание вкуса и текстур
-          </h3>
-          <ul class="collection__list">
-            <li class="collection__item">
+            <!-- bomb -->
+            <li class="catalog__gallery-item" data-link="all,bomb">
               <img
-                src="./assets/images/collection/1.jpg"
+                src="./assets/images/bomb/1.JPG"
                 draggable="false"
                 alt=""
-                class="collection__image"
+                class="catalog__gallery-image"
               />
-              <p class="collection__text">манго-малина</p>
             </li>
-            <li class="collection__item">
+            <li class="catalog__gallery-item" data-link="all,bomb">
               <img
-                src="./assets/images/collection/2.jpg"
+                src="./assets/images/bomb/2.JPG"
                 draggable="false"
                 alt=""
-                class="collection__image"
+                class="catalog__gallery-image"
               />
-              <p class="collection__text">кофе с Бейлиз</p>
             </li>
-            <li class="collection__item">
+            <li class="catalog__gallery-item" data-link="all,bomb">
               <img
-                src="./assets/images/collection/3.jpg"
+                src="./assets/images/bomb/3.JPG"
                 draggable="false"
                 alt=""
-                class="collection__image"
+                class="catalog__gallery-image"
               />
-              <p class="collection__text">шоколадная клубника</p>
             </li>
-            <li class="collection__item">
+            <li class="catalog__gallery-item" data-link="all,bomb">
               <img
-                src="./assets/images/collection/4.jpg"
+                src="./assets/images/bomb/4.JPG"
                 draggable="false"
                 alt=""
-                class="collection__image"
+                class="catalog__gallery-image"
               />
-              <p class="collection__text">шоколадная маракую</p>
             </li>
-            <li class="collection__item">
+            <li class="catalog__gallery-item" data-link="all,bomb">
               <img
-                src="./assets/images/collection/5.jpg"
+                src="./assets/images/bomb/5.JPG"
                 draggable="false"
                 alt=""
-                class="collection__image"
+                class="catalog__gallery-image"
               />
-              <p class="collection__text">сникерс 2.0</p>
             </li>
-            <li class="collection__item">
+            <li class="catalog__gallery-item" data-link="all,bomb">
               <img
-                src="./assets/images/collection/6.jpg"
+                src="./assets/images/bomb/6.JPG"
                 draggable="false"
                 alt=""
-                class="collection__image"
+                class="catalog__gallery-image"
               />
-              <p class="collection__text">шоколад с карамельным бананом</p>
             </li>
-            <li class="collection__item">
+            <li class="catalog__gallery-item" data-link="all,bomb">
               <img
-                src="./assets/images/collection/7.jpg"
+                src="./assets/images/bomb/7.JPG"
                 draggable="false"
                 alt=""
-                class="collection__image"
+                class="catalog__gallery-image"
               />
-              <p class="collection__text">карамельный капучино</p>
             </li>
-            <li class="collection__item">
+            <li class="catalog__gallery-item" data-link="all,bomb">
               <img
-                src="./assets/images/collection/8.jpg"
+                src="./assets/images/bomb/8.JPG"
                 draggable="false"
                 alt=""
-                class="collection__image"
+                class="catalog__gallery-image"
               />
-              <p class="collection__text">бесконечная клубника</p>
             </li>
-            <li class="collection__item">
+            <li class="catalog__gallery-item" data-link="all,bomb">
               <img
-                src="./assets/images/collection/9.jpg"
+                src="./assets/images/bomb/9.JPG"
                 draggable="false"
                 alt=""
-                class="collection__image"
+                class="catalog__gallery-image"
               />
-              <p class="collection__text">кокосово-сливочная маракуя</p>
             </li>
-            <li class="collection__item">
+            <li class="catalog__gallery-item" data-link="all,bomb">
               <img
-                src="./assets/images/collection/10.jpg"
+                src="./assets/images/bomb/10.JPG"
                 draggable="false"
                 alt=""
-                class="collection__image"
+                class="catalog__gallery-image"
               />
-              <p class="collection__text">фисташка-малина</p>
             </li>
-            <li class="collection__item">
+            <li class="catalog__gallery-item" data-link="all,bomb">
               <img
-                src="./assets/images/collection/11.jpg"
+                src="./assets/images/bomb/11.JPG"
                 draggable="false"
                 alt=""
-                class="collection__image"
+                class="catalog__gallery-image"
               />
-              <p class="collection__text">медовый-классика</p>
             </li>
-            <li class="collection__item">
+            <li class="catalog__gallery-item" data-link="all,bomb">
               <img
-                src="./assets/images/collection/12.jpg"
+                src="./assets/images/bomb/12.JPG"
                 draggable="false"
                 alt=""
-                class="collection__image"
+                class="catalog__gallery-image"
               />
-              <p class="collection__text">
-                карамельная груша с кедровым орехом
-              </p>
             </li>
-            <li class="collection__item">
+            <li class="catalog__gallery-item" data-link="all,bomb">
               <img
-                src="./assets/images/collection/13.jpg"
+                src="./assets/images/bomb/13.JPG"
                 draggable="false"
                 alt=""
-                class="collection__image"
+                class="catalog__gallery-image"
               />
-              <p class="collection__text">вишня-шоколад</p>
+            </li>
+            <li class="catalog__gallery-item" data-link="all,bomb">
+              <img
+                src="./assets/images/bomb/14.JPG"
+                draggable="false"
+                alt=""
+                class="catalog__gallery-image"
+              />
+            </li>
+            <li class="catalog__gallery-item" data-link="all,bomb">
+              <img
+                src="./assets/images/bomb/15.JPG"
+                draggable="false"
+                alt=""
+                class="catalog__gallery-image"
+              />
+            </li>
+            <li class="catalog__gallery-item" data-link="all,bomb">
+              <img
+                src="./assets/images/bomb/16.JPG"
+                draggable="false"
+                alt=""
+                class="catalog__gallery-image"
+              />
+            </li>
+            <li class="catalog__gallery-item" data-link="all,bomb">
+              <img
+                src="./assets/images/bomb/17.JPG"
+                draggable="false"
+                alt=""
+                class="catalog__gallery-image"
+              />
+            </li>
+            <li class="catalog__gallery-item" data-link="all,bomb">
+              <img
+                src="./assets/images/bomb/18.JPG"
+                draggable="false"
+                alt=""
+                class="catalog__gallery-image"
+              />
+            </li>
+            <li class="catalog__gallery-item" data-link="all,bomb">
+              <img
+                src="./assets/images/bomb/19.JPG"
+                draggable="false"
+                alt=""
+                class="catalog__gallery-image"
+              />
+            </li>
+            <li class="catalog__gallery-item" data-link="all,bomb">
+              <img
+                src="./assets/images/bomb/20.JPG"
+                draggable="false"
+                alt=""
+                class="catalog__gallery-image"
+              />
+            </li>
+            <li class="catalog__gallery-item" data-link="all,bomb">
+              <img
+                src="./assets/images/bomb/22.JPG"
+                draggable="false"
+                alt=""
+                class="catalog__gallery-image"
+              />
+            </li>
+            <li class="catalog__gallery-item" data-link="all,bomb">
+              <img
+                src="./assets/images/bomb/23.JPG"
+                draggable="false"
+                alt=""
+                class="catalog__gallery-image"
+              />
+            </li>
+            <li class="catalog__gallery-item" data-link="all,bomb">
+              <img
+                src="./assets/images/bomb/24.JPG"
+                draggable="false"
+                alt=""
+                class="catalog__gallery-image"
+              />
+            </li>
+            <li class="catalog__gallery-item" data-link="all,bomb">
+              <img
+                src="./assets/images/bomb/25.JPG"
+                draggable="false"
+                alt=""
+                class="catalog__gallery-image"
+              />
+            </li>
+            <li class="catalog__gallery-item" data-link="all,bomb">
+              <img
+                src="./assets/images/bomb/26.JPG"
+                draggable="false"
+                alt=""
+                class="catalog__gallery-image"
+              />
+            </li>
+            <li class="catalog__gallery-item" data-link="all,bomb">
+              <img
+                src="./assets/images/bomb/27.JPG"
+                draggable="false"
+                alt=""
+                class="catalog__gallery-image"
+              />
+            </li>
+            <li class="catalog__gallery-item" data-link="all,bomb">
+              <img
+                src="./assets/images/bomb/28.JPG"
+                draggable="false"
+                alt=""
+                class="catalog__gallery-image"
+              />
+            </li>
+            <li class="catalog__gallery-item" data-link="all,bomb">
+              <img
+                src="./assets/images/bomb/29.JPG"
+                draggable="false"
+                alt=""
+                class="catalog__gallery-image"
+              />
+            </li>
+            <li class="catalog__gallery-item" data-link="all,bomb">
+              <img
+                src="./assets/images/bomb/30.JPG"
+                draggable="false"
+                alt=""
+                class="catalog__gallery-image"
+              />
+            </li>
+            <li class="catalog__gallery-item" data-link="all,bomb">
+              <img
+                src="./assets/images/bomb/31.JPG"
+                draggable="false"
+                alt=""
+                class="catalog__gallery-image"
+              />
+            </li>
+            <li class="catalog__gallery-item" data-link="all,bomb">
+              <img
+                src="./assets/images/bomb/32.JPG"
+                draggable="false"
+                alt=""
+                class="catalog__gallery-image"
+              />
+            </li>
+            <li class="catalog__gallery-item" data-link="all,bomb">
+              <img
+                src="./assets/images/bomb/33.JPG"
+                draggable="false"
+                alt=""
+                class="catalog__gallery-image"
+              />
+            </li>
+            <li class="catalog__gallery-item" data-link="all,bomb">
+              <img
+                src="./assets/images/bomb/34.JPG"
+                draggable="false"
+                alt=""
+                class="catalog__gallery-image"
+              />
+            </li>
+            <li class="catalog__gallery-item" data-link="all,bomb">
+              <img
+                src="./assets/images/bomb/35.JPG"
+                draggable="false"
+                alt=""
+                class="catalog__gallery-image"
+              />
+            </li>
+            <li class="catalog__gallery-item" data-link="all,bomb">
+              <img
+                src="./assets/images/bomb/36.JPG"
+                draggable="false"
+                alt=""
+                class="catalog__gallery-image"
+              />
+            </li>
+            <li class="catalog__gallery-item" data-link="all,bomb">
+              <img
+                src="./assets/images/bomb/37.JPG"
+                draggable="false"
+                alt=""
+                class="catalog__gallery-image"
+              />
+            </li>
+            <li class="catalog__gallery-item" data-link="all,bomb">
+              <img
+                src="./assets/images/bomb/38.JPG"
+                draggable="false"
+                alt=""
+                class="catalog__gallery-image"
+              />
+            </li>
+            <li class="catalog__gallery-item" data-link="all,bomb">
+              <img
+                src="./assets/images/bomb/39.JPG"
+                draggable="false"
+                alt=""
+                class="catalog__gallery-image"
+              />
+            </li>
+            <li class="catalog__gallery-item" data-link="all,bomb">
+              <img
+                src="./assets/images/bomb/40.JPG"
+                draggable="false"
+                alt=""
+                class="catalog__gallery-image"
+              />
+            </li>
+            <li class="catalog__gallery-item" data-link="all,bomb">
+              <img
+                src="./assets/images/bomb/41.JPG"
+                draggable="false"
+                alt=""
+                class="catalog__gallery-image"
+              />
             </li>
           </ul>
         </div>
-      </section>
-
-      <section class="section reviews">
-        <div class="container reviews__container">
-          <div class="title reviews__title">
-            <h2 class="title__text">Отзывы</h2>
-          </div>
-          <h3 class="description reviews__description">
-            искренне ценим ваше доверие и теплый отклик о нашей работе
-          </h3>
-        </div>
-        <div class="swiper reviews__swiper">
-          <div class="swiper-wrapper reviews__swiper-wrapper">
-            <div class="swiper-slide reviews__swiper-slide">
-              <img
-                src="./assets/images/reviews/1.jpg"
-                alt=""
-                class="reviews__swiper-image"
-              />
-            </div>
-            <div class="swiper-slide reviews__swiper-slide">
-              <img
-                src="./assets/images/reviews/2.jpg"
-                alt=""
-                class="reviews__swiper-image"
-              />
-            </div>
-            <div class="swiper-slide reviews__swiper-slide">
-              <img
-                src="./assets/images/reviews/3.jpg"
-                alt=""
-                class="reviews__swiper-image"
-              />
-            </div>
-            <div class="swiper-slide reviews__swiper-slide">
-              <img
-                src="./assets/images/reviews/4.jpg"
-                alt=""
-                class="reviews__swiper-image"
-              />
-            </div>
-            <div class="swiper-slide reviews__swiper-slide">
-              <img
-                src="./assets/images/reviews/5.jpg"
-                alt=""
-                class="reviews__swiper-image"
-              />
-            </div>
-            <div class="swiper-slide reviews__swiper-slide">
-              <img
-                src="./assets/images/reviews/6.jpg"
-                alt=""
-                class="reviews__swiper-image"
-              />
-            </div>
-            <div class="swiper-slide reviews__swiper-slide">
-              <img
-                src="./assets/images/reviews/7.jpg"
-                alt=""
-                class="reviews__swiper-image"
-              />
-            </div>
-            <div class="swiper-slide reviews__swiper-slide">
-              <img
-                src="./assets/images/reviews/8.jpg"
-                alt=""
-                class="reviews__swiper-image"
-              />
-            </div>
-            <div class="swiper-slide reviews__swiper-slide">
-              <img
-                src="./assets/images/reviews/9.jpg"
-                alt=""
-                class="reviews__swiper-image"
-              />
-            </div>
-            <div class="swiper-slide reviews__swiper-slide">
-              <img
-                src="./assets/images/reviews/10.jpg"
-                alt=""
-                class="reviews__swiper-image"
-              />
-            </div>
-            <div class="swiper-slide reviews__swiper-slide">
-              <img
-                src="./assets/images/reviews/11.jpg"
-                alt=""
-                class="reviews__swiper-image"
-              />
-            </div>
-            <div class="swiper-slide reviews__swiper-slide">
-              <img
-                src="./assets/images/reviews/12.jpg"
-                alt=""
-                class="reviews__swiper-image"
-              />
-            </div>
-            <div class="swiper-slide reviews__swiper-slide">
-              <img
-                src="./assets/images/reviews/13.jpg"
-                alt=""
-                class="reviews__swiper-image"
-              />
-            </div>
-            <div class="swiper-slide reviews__swiper-slide">
-              <img
-                src="./assets/images/reviews/14.jpg"
-                alt=""
-                class="reviews__swiper-image"
-              />
-            </div>
-            <div class="swiper-slide reviews__swiper-slide">
-              <img
-                src="./assets/images/reviews/15.jpg"
-                alt=""
-                class="reviews__swiper-image"
-              />
-            </div>
-            <div class="swiper-slide reviews__swiper-slide">
-              <img
-                src="./assets/images/reviews/16.jpg"
-                alt=""
-                class="reviews__swiper-image"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="about-me" class="about-me">
-        <div class="about-me__container container">
-          <div class="title about-me__title">
-            <h2 class="title__text">ОБО МНЕ</h2>
-          </div>
-          <div class="about-me__content">
-            <div class="about-me__block about-me-description">
-              <h3 class="about-me-description__title">
-                Здравствуйте, меня зовут Юлия.
-              </h3>
-              <p class="about-me-description__text">
-                Мои торты — моя большая любовь. Они занимают важное место в моей
-                жизни. Вот уже более 5 лет я создаю для вас
-                <span class="about-me-description__text_black"
-                  >десерты из высококачественных натуральных ингредиентов</span
-                >
-              </p>
-              <p class="about-me-description__text">
-                Каждый торт для меня особенный и я уделяю внимание его вкусу,
-                оформлению и упаковке. Вкусный и красивый торт — это не просто
-                десерт, а эмоции, атмосфера вашего праздника и тёплые
-                воспоминания.
-              </p>
-              <p
-                class="about-me-description__text about-me-description__text_gold"
-              >
-                Помогу Вам подарить чудо близким.
-              </p>
-            </div>
-            <div class="about-me__block about-me__block">
-              <div class="swiper about-me__swiper">
-                <div class="swiper-wrapper about-me__swiper-wrapper">
-                  <div class="swiper-slide about-me__swiper-slide">
-                    <img
-                      src="./assets/images/about-me/1.jpg"
-                      alt=""
-                      class="about-me__swiper-image"
-                    />
-                  </div>
-                  <div class="swiper-slide about-me__swiper-slide">
-                    <img
-                      src="./assets/images/about-me/2.jpg"
-                      alt=""
-                      class="about-me__swiper-image"
-                    />
-                  </div>
-                  <div class="swiper-slide about-me__swiper-slide">
-                    <img
-                      src="./assets/images/about-me/3.jpg"
-                      alt=""
-                      class="about-me__swiper-image"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="contacts" class="contacts">
-        <div class="contacts__container container">
-          <div class="title contacts__title">
-            <h2 class="title__text">Контакты</h2>
-          </div>
-          <div class="contacts__content">
-            <div class="contacts__block contacts__map">
-              <div
-                style="
-                  position: relative;
-                  overflow: hidden;
-                  width: 100%;
-                  height: 100%;
-                "
-              >
-                <iframe
-                  src="https://yandex.ru/map-widget/v1/?um=constructor%3A9a7248834cd1387c6c1dfe86eb85a17ec483100f9615a70b6624257fd93d2622&amp;source=constructor"
-                  width="100%"
-                  height="100%"
-                  frameborder="0"
-                ></iframe>
-              </div>
-            </div>
-            <div class="contacts__block contacts-description">
-              <h3 class="contacts-description__title">КОНДИТЕРСКАЯ СТУДИЯ</h3>
-              <address class="contacts-description__text">
-                г. Красноярск 2-я Огородная, 25
-              </address>
-              <p class="contacts-description__text">
-                Режим работы:<br />
-                с 9:00 до 17:00
-              </p>
-              <p class="contacts-description__text">
-                Телефоны для связи:<br />
-                <a href="tel:+79029102310">+7 902 910-23-10</a>
-              </p>
-
-              <div class="contacts__social social">
-                <div class="social__block">
-                  <p class="social__text">Месседжеры:</p>
-                  <ul class="social__list">
-                    <li class="social__item">
-                      <svg
-                        width="100px"
-                        height="100px"
-                        xmlns="http://www.w3.org/2000/svg"
-                        xmlns:xlink="http://www.w3.org/1999/xlink"
-                        viewBox="0 0 20 20"
-                        version="1.1"
-                      >
-                        <g
-                          id="Dribbble-Light-Preview"
-                          transform="translate(-300.000000, -7599.000000)"
-                          fill="#735849"
-                        >
-                          <g
-                            id="icons"
-                            transform="translate(56.000000, 160.000000)"
-                          >
-                            <path
-                              d="M259.821,7453.12124 C259.58,7453.80344 258.622,7454.36761 257.858,7454.53266 C257.335,7454.64369 256.653,7454.73172 254.355,7453.77943 C251.774,7452.71011 248.19,7448.90097 248.19,7446.36621 C248.19,7445.07582 248.934,7443.57337 250.235,7443.57337 C250.861,7443.57337 250.999,7443.58538 251.205,7444.07952 C251.446,7444.6617 252.034,7446.09613 252.104,7446.24317 C252.393,7446.84635 251.81,7447.19946 251.387,7447.72462 C251.252,7447.88266 251.099,7448.05372 251.27,7448.3478 C251.44,7448.63589 252.028,7449.59418 252.892,7450.36341 C254.008,7451.35771 254.913,7451.6748 255.237,7451.80984 C255.478,7451.90987 255.766,7451.88687 255.942,7451.69881 C256.165,7451.45774 256.442,7451.05762 256.724,7450.6635 C256.923,7450.38141 257.176,7450.3464 257.441,7450.44643 C257.62,7450.50845 259.895,7451.56477 259.991,7451.73382 C260.062,7451.85686 260.062,7452.43903 259.821,7453.12124 M254.002,7439 L253.997,7439 L253.997,7439 C248.484,7439 244,7443.48535 244,7449 C244,7451.18666 244.705,7453.21526 245.904,7454.86076 L244.658,7458.57687 L248.501,7457.3485 C250.082,7458.39482 251.969,7459 254.002,7459 C259.515,7459 264,7454.51465 264,7449 C264,7443.48535 259.515,7439 254.002,7439"
-                              id="whatsapp-[#128]"
-                            ></path>
-                          </g>
-                        </g>
-                      </svg>
-                      WhatsApp
-                    </li>
-                    <li class="social__item">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="100px"
-                        height="100px"
-                        viewBox="0 0 15 15"
-                        fill="none"
-                      >
-                        <path
-                          d="M14.9932 1.58221C15.0223 1.40736 14.9567 1.23016 14.8208 1.11645C14.6848 1.00274 14.4988 0.969519 14.3318 1.02914L0.331836 6.02914C0.143209 6.0965 0.0129867 6.26994 0.000913704 6.46987C-0.0111592 6.6698 0.0972469 6.85765 0.276398 6.94722L4.2764 8.94722C4.43688 9.02746 4.62806 9.01556 4.77735 8.91603L8.09775 6.70244L6.10957 9.18766C6.02203 9.29709 5.98442 9.43824 6.00592 9.57672C6.02742 9.7152 6.10605 9.8383 6.22265 9.91603L12.2227 13.916C12.3638 14.0101 12.5431 14.0262 12.6988 13.9588C12.8545 13.8914 12.9653 13.7496 12.9932 13.5822L14.9932 1.58221Z"
-                          fill="#735849"
-                        />
-                      </svg>
-                      Telegram
-                    </li>
-                  </ul>
-                </div>
-                <div class="social__block">
-                  <p class="social__text">Соцсети:</p>
-                  <ul class="social__list">
-                    <li class="social__item">
-                      <svg
-                        width="100px"
-                        height="100px"
-                        viewBox="0 0 960 960"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M726.895 478.902C729.991 250.487 638.505 220.924 429.866 233.608C286.146 222.522 229.716 331.386 229.317 460.125C221.527 586.168 260.378 745.468 417.282 732.085C613.137 728.59 735.984 708.714 726.895 478.902ZM384.423 85.7931C608.743 64.9192 868.418 97.079 871.514 377.828C879.404 507.066 883.599 645.593 820.278 762.847C752.862 877.503 640.503 872.709 523.649 875.406C420.877 879.501 314.91 888.39 215.834 854.732C114.86 819.776 87.3942 743.571 89.5915 643.895C86.0959 558.103 82.6002 472.51 84.0984 386.617C89.0921 183.071 177.981 81.099 384.423 85.7931Z"
-                          fill="#735849"
-                        ></path>
-                        <path
-                          d="M429.866 233.608C638.505 220.924 729.89 250.487 726.894 478.902C735.983 708.714 613.136 728.49 417.381 732.085C260.377 745.469 221.626 586.068 229.416 460.125C229.716 331.386 286.145 222.522 429.866 233.608ZM682.949 486.093C682.949 344.67 665.571 269.763 504.972 276.954C457.231 281.648 401.401 274.557 353.461 290.837C257.181 337.878 270.465 467.216 279.354 556.904C288.043 701.823 408.193 697.528 520.652 681.349C658.779 674.058 684.248 614.432 682.949 486.093Z"
-                          fill="white"
-                        ></path>
-                        <path
-                          d="M495.188 393.309C393.515 388.116 362.155 555.606 473.715 560.101C578.584 557.604 594.664 423.172 495.188 393.309ZM473.915 354.857C649.495 342.972 638.709 602.448 473.116 600.65C316.212 595.856 330.894 368.84 473.915 354.857Z"
-                          fill="white"
-                        ></path>
-                        <path
-                          d="M473.813 560.102C362.252 555.508 393.513 388.017 495.286 393.31C594.662 423.173 578.582 557.605 473.813 560.102Z"
-                          fill="#735849"
-                        ></path>
-                        <path
-                          d="M504.973 276.955C665.572 269.664 683.05 344.67 682.95 486.093C684.149 614.433 658.781 674.058 520.653 681.349C408.194 697.529 288.044 701.823 279.355 556.905C270.466 467.117 257.282 337.878 353.462 290.837C401.402 274.558 457.233 281.649 504.973 276.955ZM473.213 600.65C638.706 602.448 649.592 342.972 474.012 354.857C330.89 368.84 316.209 595.856 473.213 600.65ZM601.452 383.222C644.199 388.815 638.206 325.094 599.255 326.892C561.502 327.891 565.997 382.223 601.452 383.222Z"
-                          fill="#735849"
-                        ></path>
-                      </svg>
-                      instagtam* <a class="social__link" href="">@uralovna</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      </sectioin>
     </main>
 
     <footer class="footer" id="footer">

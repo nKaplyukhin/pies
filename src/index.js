@@ -12,6 +12,9 @@ const COLLECTION_SWIPER_CLASS = "collection__swiper";
 const COLLECTION_ITEM_CLASS = "collection__item";
 const COLLECTION_IMAGE_CLASS = "collection__image";
 
+const CATALOG_ITEM_CLASS = "catalog__gallery-item";
+const CATALOG_IMAGE_CLASS = "catalog__gallery-image";
+
 const REVIEWS_SWIPER_CLASS = "reviews__swiper";
 
 const IMAGE_MODAL_CLASS = "image-modal";
@@ -101,12 +104,18 @@ const initBurger = () => {
   });
 };
 
-const collectionImages = classSelectorAll(COLLECTION_ITEM_CLASS);
+// const urlParams = new URLSearchParams(window.location.search);
 
-const openImageModal = (index) => {
+// console.log(urlParams.get("suka"));
+
+
+const collectionImages = classSelectorAll(COLLECTION_ITEM_CLASS);
+const catalogImages = classSelectorAll(CATALOG_ITEM_CLASS);
+
+const openImageModal = (index, imageClass, items) => {
   let currenImage = classSelector(
-    COLLECTION_IMAGE_CLASS,
-    collectionImages[index]
+    imageClass,
+    items[index]
   );
 
   if (!currenImage) {
@@ -124,7 +133,7 @@ const openImageModal = (index) => {
 
     if (
       classList.contains(IMAGE_MODAL_BUTTON_FORWARD_CLASS) &&
-      imageIndex < collectionImages.length - 1
+      imageIndex < items.length - 1
     ) {
       imageIndex += 1;
     }
@@ -132,8 +141,8 @@ const openImageModal = (index) => {
       imageIndex -= 1;
     }
     newImage = classSelector(
-      COLLECTION_IMAGE_CLASS,
-      collectionImages[imageIndex]
+      imageClass,
+      items[imageIndex]
     );
 
     if (newImage) {
@@ -155,7 +164,13 @@ const openImageModal = (index) => {
 
 collectionImages.forEach((item, index) => {
   item.addEventListener("click", () => {
-    openImageModal(index);
+    openImageModal(index, COLLECTION_IMAGE_CLASS, collectionImages);
+  });
+});
+
+catalogImages.forEach((item, index) => {
+  item.addEventListener("click", () => {
+    openImageModal(index, CATALOG_IMAGE_CLASS, catalogImages);
   });
 });
 
