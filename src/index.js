@@ -112,13 +112,15 @@ const initBurger = () => {
 const collectionImages = classSelectorAll(COLLECTION_ITEM_CLASS);
 const catalogImages = classSelectorAll(CATALOG_ITEM_CLASS);
 
-const openImageModal = (index, imageClass, items) => {
-  let currenImage = classSelector(
-    imageClass,
-    items[index]
-  );
+const openImageModal = async (index, imageClass, items) => {
+  // let currenImage = classSelector(
+  //   imageClass,
+  //   items[index]
+  // );
 
-  if (!currenImage) {
+  const currentImage = await import(`./assets/images/collection/toppings-${index + 1}.png`);
+
+  if (!currentImage) {
     return;
   }
 
@@ -127,9 +129,9 @@ const openImageModal = (index, imageClass, items) => {
 
   let imageIndex = index;
   modal.classList.add(IMAGE_MODAL_ACTIVE_CLASS);
-  modal.addEventListener("click", (e) => {
+  modal.addEventListener("click", async (e) => {
     const classList = e.target.classList;
-    let newImage = `./assets/images/collection/toppings-${imageIndex + 1}.png`;
+    let newImage = currentImage;
 
     if (
       classList.contains(IMAGE_MODAL_BUTTON_FORWARD_CLASS) &&
@@ -140,13 +142,10 @@ const openImageModal = (index, imageClass, items) => {
     if (classList.contains(IMAGE_MODAL_BUTTON_BACK_CLASS) && imageIndex > 0) {
       imageIndex -= 1;
     }
-    newImage = classSelector(
-      imageClass,
-      items[imageIndex]
-    );
+    newImage = await import(`./assets/images/collection/toppings-${imageIndex + 1}.png`);
 
     if (newImage) {
-      image.src = newImage.src;
+      image.src = newImage.default;
     }
 
     const isDisable =
@@ -159,7 +158,7 @@ const openImageModal = (index, imageClass, items) => {
     modal.classList.remove(IMAGE_MODAL_ACTIVE_CLASS);
   });
 
-  image.src = currenImage.src;
+  image.src = currentImage.default;
 };
 
 collectionImages.forEach((item, index) => {
