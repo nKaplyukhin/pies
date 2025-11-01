@@ -129,7 +129,7 @@ const openImageModal = (index, imageClass, items) => {
   modal.classList.add(IMAGE_MODAL_ACTIVE_CLASS);
   modal.addEventListener("click", (e) => {
     const classList = e.target.classList;
-    let newImage = currenImage;
+    let newImage = `./assets/images/collection/toppings-${imageIndex + 1}.png`;
 
     if (
       classList.contains(IMAGE_MODAL_BUTTON_FORWARD_CLASS) &&
