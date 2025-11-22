@@ -12,8 +12,9 @@
     }
   }
   &__content {
-    display: flex;
+    display: grid;
     gap: 3%;
+    grid-template-columns: 3fr 2fr;
     flex-wrap: wrap;
     @include mobile {
       flex-direction: column-reverse;
@@ -21,23 +22,12 @@
     }
   }
   &__block {
-    width: 48.5%;
     position: relative;
     overflow: hidden;
     height: 30rem;
     @include mobile {
       width: 100%;
       overflow: auto;
-    }
-  }
-  &__swiper {
-    position: absolute;
-    right: 0;
-    width: 100%;
-    overflow: hidden;
-    @include mobile {
-      position: relative;
-      height: 30rem;
     }
   }
 }

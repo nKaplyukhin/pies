@@ -17,13 +17,11 @@
       background-color: $yellow-color;
     }
   }
-  &__navigation {
+  &__list {
     position: sticky;
     top: 76px;
     z-index: 10;
     background-color: #fff;
-  }
-  &__list {
     display: flex;
     flex-wrap: wrap;
     font-weight: bold;
@@ -32,8 +30,7 @@
     justify-content: center;
     font-size: 0.8rem;
     color: $brown-color;
-    padding: 2rem 0;
-    padding-bottom: 1rem;
+    padding: 1rem 0;
   }
   &__item {
     position: relative;
@@ -50,7 +47,19 @@
     }
   }
 
+  &__tab {
+    position: relative;
+    display: none;
+    &_active {
+      display: block;
+    }
+  }
+
   &__inner-list {
+    position: sticky;
+    background-color: #fff;
+    z-index: 10;
+    top: 120px;
     display: flex;
     flex-wrap: wrap;
     font-weight: bold;
@@ -80,6 +89,20 @@
   &__button {
     background-color: inherit;
     border: none;
+    &_active {
+      position: relative;
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -5px;
+        background-color: $yellow-color;
+        height: 0.1rem;
+        transition: all 0.3s ease-out;
+        transform: scale(1);
+      }
+    }
   }
 
   &__gallery-list {
@@ -88,6 +111,7 @@
     align-items: stretch;
     gap: 20% 2%;
   }
+
   &__gallery-item {
     flex: 0 0 23.5%;
     display: flex;
@@ -107,6 +131,9 @@
       &:not(:last-child) {
         margin-bottom: 2rem;
       }
+    }
+    &_hidden {
+      display: none;
     }
   }
   &__gallery-image {

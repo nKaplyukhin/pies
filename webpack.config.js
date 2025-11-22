@@ -44,7 +44,7 @@ module.exports = () => ({
         use: "html-loader",
       },
       {
-        test: /\.(png|jpg|jpeg|gif)$/i,
+        test: /\.(png|jpg|jpeg|webp)$/i,
         type: "asset/resource",
       },
       {
@@ -72,6 +72,11 @@ module.exports = () => ({
     new HtmlWebpackPlugin({
       template: './catalog.html',
       filename: 'catalog.html',
+    }),
+
+      new HtmlWebpackPlugin({
+      template: './generator.html',
+      filename: 'generator.html',
     }),
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({

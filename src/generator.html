@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    >
+    <title>Document</title>
+  </head>
+  <body>
+    <ul></ul>
+  </body>
+  <script>
+    const ul = document.querySelector("ul")
+
+    ul.classList.add("catalog__gallery-list")
+
+    const bentoSize = 12;
+
+    for (let index = 1; index < 200; index++) {
+        const bentoElem = document.createElement("li")
+
+        bentoElem.classList.add("catalog__gallery-item")
+
+        bentoElem.innerHTML = `
+  <img
+    src="./assets/images/catalog/corporate/corporate-${index}-preview.webp"
+    alt="corporate-${index}"
+    class="catalog__gallery-image"
+  >`
+
+
+    if (index <= bentoSize) {
+        ul.append(bentoElem)
+    }
+    }
+  </script>
+</html>
