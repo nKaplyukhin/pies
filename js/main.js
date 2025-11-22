@@ -14562,21 +14562,17 @@ const ACTIVE_BURGER_MENU_CLASS = "burger-menu_active";
 
 const COLLECTION_SWIPER_CLASS = "collection__swiper";
 const COLLECTION_ITEM_CLASS = "collection__item";
-
-const CATALOG_ITEM_CLASS = "catalog__gallery-item";
-const CATALOG_ITEM_HIDDEN_CLASS = "catalog__gallery-item_hidden";
-
 const REVIEWS_SWIPER_CLASS = "reviews__swiper";
 
 const CATALOG_INNER_LIST_CLASS = "catalog__inner-list"
 const CATALOG_INNER_BUTTON_CLASS = "catalog__inner-button"
 const CATALOG_LIST_CLASS = "catalog__list"
-const CATALOG_BUTTON_CLASS = "catalog__button"
 const CATALOG_TAB_BUTTON_CLASS = "catalog__tab-button"
 const CATALOG_BUTTON_ACTIVE_CLASS = "catalog__button_active"
-
 const CATALOG_TAB_CLASS = "catalog__tab"
 const CATALOG_ACTIVE_TAB_CLASS = "catalog__tab_active"
+const CATALOG_ITEM_CLASS = "catalog__gallery-item";
+const CATALOG_ITEM_HIDDEN_CLASS = "catalog__gallery-item_hidden";
 
 const IMAGE_MODAL_CLASS = "image-modal";
 const IMAGE_MODAL_BUTTON_CLASS = "image-modal__button";
@@ -14653,10 +14649,6 @@ const initBurger = () => {
   });
 };
 
-// const urlParams = new URLSearchParams(window.location.search);
-
-// console.log(urlParams.get("suka"));
-
 
 const collectionImages = classSelectorAll(COLLECTION_ITEM_CLASS);
 const catalogImages = classSelectorAll(CATALOG_ITEM_CLASS);
@@ -14687,7 +14679,7 @@ const openImageModal = async (index, imagePath, items) => {
     if (classList.contains(IMAGE_MODAL_BUTTON_BACK_CLASS) && imageIndex > 1) {
       imageIndex -= 1;
     }
-    console.log(index, imageIndex);
+    // console.log(index, imageIndex);
 
     newImage = await __webpack_require__(13751)(`./${imagePath}-${imageIndex + 1}.webp`);
 
@@ -14727,7 +14719,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 const catalogInnerList = classSelector(CATALOG_INNER_LIST_CLASS)
-const catalogitems = classSelectorAll(CATALOG_ITEM_CLASS)
+const catalogItems = classSelectorAll(CATALOG_ITEM_CLASS)
 const catalogInnerButtons = classSelectorAll(CATALOG_INNER_BUTTON_CLASS)
 
 catalogInnerList.addEventListener("click", (e) => {
@@ -14740,7 +14732,7 @@ catalogInnerList.addEventListener("click", (e) => {
 
     const attribute = target.getAttribute("data-link");
 
-    catalogitems.forEach(catalogItem => {
+    catalogItems.forEach(catalogItem => {
       const catalogItemAttribute = catalogItem.getAttribute("data-link")
       if (attribute === 'all') {
         catalogItem.classList.remove(CATALOG_ITEM_HIDDEN_CLASS)
@@ -14761,14 +14753,23 @@ const catalogTabsButtons = classSelectorAll(CATALOG_TAB_BUTTON_CLASS)
 catalogList.addEventListener("click", (e) => {
   const { target } = e
   if (target.classList.contains(CATALOG_TAB_BUTTON_CLASS)) {
+    catalogItems.forEach(item => {
+      item.classList.remove(CATALOG_ITEM_HIDDEN_CLASS)
+    })
+    catalogInnerButtons.forEach(item => {
+      item.classList.remove(CATALOG_BUTTON_ACTIVE_CLASS)
+    })
+    catalogInnerButtons[0].classList.add(CATALOG_BUTTON_ACTIVE_CLASS)
+
     catalogTabsButtons.forEach(item => {
       item.classList.remove(CATALOG_BUTTON_ACTIVE_CLASS)
     })
     e.target.classList.add(CATALOG_BUTTON_ACTIVE_CLASS)
 
     const attribute = target.getAttribute("data-tab");
-    
-     catalogTabs.forEach(catalogTab => {
+
+    catalogTabs.forEach(catalogTab => {
+
       const catalogItemAttribute = catalogTab.getAttribute("data-tab")
       if (catalogItemAttribute == attribute) {
         catalogTab.classList.add(CATALOG_ACTIVE_TAB_CLASS)
