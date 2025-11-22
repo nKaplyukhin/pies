@@ -1,0 +1,11 @@
+"use strict";
+(self["webpackChunk"] = self["webpackChunk"] || []).push([[56021],{
+
+/***/ 56021:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "assets/26dd02b8d08f15132c47.webp";
+
+/***/ })
+
+}]);
