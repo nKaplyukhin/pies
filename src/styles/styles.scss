@@ -139,6 +139,7 @@ ul {
   justify-content: center;
   pointer-events: none;
   opacity: 0;
+  gap: 3rem;
   transition: all 0.5s ease-out;
   &__item {
     user-select: none;

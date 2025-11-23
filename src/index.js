@@ -23,6 +23,8 @@ const CATALOG_TAB_CLASS = "catalog__tab"
 const CATALOG_ACTIVE_TAB_CLASS = "catalog__tab_active"
 const CATALOG_ITEM_CLASS = "catalog__gallery-item";
 const CATALOG_ITEM_HIDDEN_CLASS = "catalog__gallery-item_hidden";
+const CATALOG_GALLERY_LIST_CLASS = "catalog__gallery-list"
+const CATALOG_GALLERY_IMAGE_CLASS = "catalog__gallery-image"
 
 const IMAGE_MODAL_CLASS = "image-modal";
 const IMAGE_MODAL_BUTTON_CLASS = "image-modal__button";
@@ -31,8 +33,12 @@ const IMAGE_MODAL_BUTTON_FORWARD_CLASS = `${IMAGE_MODAL_BUTTON_CLASS}_forward`;
 const IMAGE_MODAL_ACTIVE_CLASS = `${IMAGE_MODAL_CLASS}_active`;
 const IMAGE_MODAL_ITEM_CLASS = "image-modal__item";
 
-const getFullImagePathAndIndexFromSrc = (src) => {
-  console.log(src);
+const getIndexFromAlt = (alt) => {
+  const [name, index] = alt.split("-")
+
+  return {
+    name, index: Number(index)
+  }
 }
 
 const addDotToClassName = (className) => `.${className}`;
@@ -107,84 +113,110 @@ const initBurger = () => {
 const collectionList = classSelector(COLLECTION_LIST_CLASS);
 const collectionImages = classSelectorAll(COLLECTION_IMAGE_CLASS);
 
-const catalogImages = classSelectorAll(CATALOG_ITEM_CLASS);
+
+let modalClickHandler = null; // будем хранить ссылку на текущий обработчик
 
 const openImageModal = async (index, src, items) => {
-
   const currentImage = await import(`./assets/images/${src}-${index}.webp`);
-
-  if (!currentImage) {
-    return;
-  }
+  if (!currentImage) return;
 
   const modal = classSelector(IMAGE_MODAL_CLASS);
   const image = classSelector(IMAGE_MODAL_ITEM_CLASS, modal);
 
+  // Удаляем предыдущий обработчик, если он есть
+  if (modalClickHandler) {
+    modal.removeEventListener("click", modalClickHandler);
+  }
+
   let imageIndex = index;
-  modal.classList.add(IMAGE_MODAL_ACTIVE_CLASS);
-  modal.addEventListener("click", async (e) => {
+
+  // Создаём новый обработчик
+  modalClickHandler = async (e) => {
     const classList = e.target.classList;
-    let newImage = currentImage;
 
-    if (
-      classList.contains(IMAGE_MODAL_BUTTON_FORWARD_CLASS) &&
-      imageIndex < items.length - 1
-    ) {
-      imageIndex += 1;
-    }
-    if (classList.contains(IMAGE_MODAL_BUTTON_BACK_CLASS) && imageIndex > 1) {
-      imageIndex -= 1;
-    }
-    // console.log(index, imageIndex);
-
-    newImage = await import(`./assets/images/${src}-${imageIndex + 1}.webp`);
-
-    if (newImage) {
-      image.src = newImage.default;
-    }
-
+    // Закрытие по клику вне изображения или на крестик и т.п.
     const isDisable =
       classList.contains(IMAGE_MODAL_ITEM_CLASS) ||
       classList.contains(IMAGE_MODAL_BUTTON_CLASS);
 
-    if (isDisable) {
+    if (!isDisable) {
+      modal.classList.remove(IMAGE_MODAL_ACTIVE_CLASS);
+      modal.removeEventListener("click", modalClickHandler);
+      modalClickHandler = null;
       return;
     }
-    modal.classList.remove(IMAGE_MODAL_ACTIVE_CLASS);
-  });
 
+
+    // Навигация
+    if (
+      classList.contains(IMAGE_MODAL_BUTTON_FORWARD_CLASS) &&
+      imageIndex < items.length
+    ) {
+      imageIndex += 1;
+    }
+    if (classList.contains(IMAGE_MODAL_BUTTON_BACK_CLASS) && imageIndex > 1) { // ⚠️ было > 1, должно быть > 0
+      imageIndex -= 1;
+    }
+
+    try {
+      const newImage = await import(`./assets/images/${src}-${imageIndex}.webp`);
+      if (newImage?.default) {
+        image.src = newImage.default;
+        // Обновляем замыкание: новое значение index для следующего клика
+        // Но это не сработает — замыкание фиксирует `index`!
+      }
+    } catch (err) {
+      console.error("Image load failed:", err);
+    }
+  };
+
+  // Добавляем новый обработчик
+  modal.addEventListener("click", modalClickHandler);
+
+  modal.classList.add(IMAGE_MODAL_ACTIVE_CLASS);
   image.src = currentImage.default;
 };
 
-// collectionList.addEventListener("click", (e) => {
-//   const { target } = e
-//   if (target.classList.contains(COLLECTION_IMAGE_CLASS)) {
-//     getFullImagePathAndIndexFromSrc(target.src)
-//     // openImageModal(index + 1, target.src, collectionImages);
-//   }
-// })
+if (collectionList) {
+  collectionList.addEventListener("click", (e) => {
+    const { target } = e
+    const path = e.currentTarget.getAttribute("data-path")
+    if (target.classList.contains(COLLECTION_IMAGE_CLASS)) {
+      const { alt } = target
+      const { index } = getIndexFromAlt(alt)
 
-// collectionImages.forEach((item, index) => {
-//   item.addEventListener("click", () => {
-//     openImageModal(index + 1, item.src, collectionImages);
-//   });
-// });
+      console.log(path);
 
-// catalogImages.forEach((item, index) => {
-//   item.addEventListener("click", () => {
-//     openImageModal(index + 1, item.src, catalogImages);
-//   });
-// });
+      openImageModal(index, path, collectionImages);
+    }
+  })
+}
 
 document.addEventListener("DOMContentLoaded", () => {
   initSwipers();
   initBurger();
 });
 
-
 const catalogInnerList = classSelector(CATALOG_INNER_LIST_CLASS)
+const catalogGalleryList = classSelectorAll(CATALOG_GALLERY_LIST_CLASS)
 const catalogItems = classSelectorAll(CATALOG_ITEM_CLASS)
 const catalogInnerButtons = classSelectorAll(CATALOG_INNER_BUTTON_CLASS)
+
+if (catalogGalleryList) {
+  catalogGalleryList.forEach(item => {
+    item.addEventListener("click", (e) => {
+      const { target } = e
+      const path = e.currentTarget.getAttribute("data-path")
+      if (target.classList.contains(CATALOG_GALLERY_IMAGE_CLASS)) {
+        const { alt } = target
+        const { name, index } = getIndexFromAlt(alt)
+
+        openImageModal(index, `${path}/${name}`, catalogItems);
+      }
+    })
+  })
+}
+
 
 if (catalogInnerList) {
   catalogInnerList.addEventListener("click", (e) => {
