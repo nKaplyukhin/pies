@@ -4,7 +4,7 @@
 /***/ 69718:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-module.exports = __webpack_require__.p + "assets/d68633d85a651ab1a94a.webp";
+module.exports = __webpack_require__.p + "assets/53e8feccd9e01a19650a.webp";
 
 /***/ })
 
