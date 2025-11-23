@@ -31,6 +31,15 @@
     font-size: 0.8rem;
     color: $brown-color;
     padding: 1rem 0;
+    &::before {
+      content: "";
+      position: absolute;
+      left: -10px;
+      right: -10px;
+      height: 100%;
+      top: 0;
+      background-color: #fff;
+    }
   }
   &__item {
     position: relative;
@@ -69,6 +78,15 @@
     font-size: 0.8rem;
     color: $brown-color;
     padding: 1rem 0;
+    &::before {
+      content: "";
+      position: absolute;
+      left: -10px;
+      right: -10px;
+      height: 100%;
+      top: 0;
+      background-color: #fff;
+    }
   }
 
   &__inner-item {
