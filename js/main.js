@@ -4761,6 +4761,46 @@ var map = {
 		50395,
 		50395
 	],
+	"./cost/cost-1-preview.webp": [
+		54737,
+		54737
+	],
+	"./cost/cost-1.webp": [
+		81595,
+		81595
+	],
+	"./cost/cost-2-preview.webp": [
+		71953,
+		71953
+	],
+	"./cost/cost-2.webp": [
+		86682,
+		86682
+	],
+	"./cost/cost-3-preview.webp": [
+		42339,
+		42339
+	],
+	"./cost/cost-3.webp": [
+		73962,
+		73962
+	],
+	"./cost/cost-4-preview.webp": [
+		19183,
+		19183
+	],
+	"./cost/cost-4.webp": [
+		47984,
+		47984
+	],
+	"./cost/cost-5-preview.webp": [
+		1107,
+		1107
+	],
+	"./cost/cost-5.webp": [
+		92377,
+		92377
+	],
 	"./hero-image.webp": [
 		96654,
 		96654
@@ -14560,8 +14600,10 @@ const ACTIVE_BURGER_BUTTTON_CLASS = "burger__button_active";
 const BURGER_MENU_CLASS = "burger-menu";
 const ACTIVE_BURGER_MENU_CLASS = "burger-menu_active";
 
+const COLLECTION_LIST_CLASS = "collection__list"
 const COLLECTION_SWIPER_CLASS = "collection__swiper";
 const COLLECTION_ITEM_CLASS = "collection__item";
+const COLLECTION_IMAGE_CLASS = "collection__image";
 const REVIEWS_SWIPER_CLASS = "reviews__swiper";
 
 const CATALOG_INNER_LIST_CLASS = "catalog__inner-list"
@@ -14576,10 +14618,14 @@ const CATALOG_ITEM_HIDDEN_CLASS = "catalog__gallery-item_hidden";
 
 const IMAGE_MODAL_CLASS = "image-modal";
 const IMAGE_MODAL_BUTTON_CLASS = "image-modal__button";
-const IMAGE_MODAL_BUTTON_BACK_CLASS = `${IMAGE_MODAL_BUTTON_CLASS}_back`;
-const IMAGE_MODAL_BUTTON_FORWARD_CLASS = `${IMAGE_MODAL_BUTTON_CLASS}_forward`;
-const IMAGE_MODAL_ACTIVE_CLASS = `${IMAGE_MODAL_CLASS}_active`;
+const IMAGE_MODAL_BUTTON_BACK_CLASS = (/* unused pure expression or super */ null && (`${IMAGE_MODAL_BUTTON_CLASS}_back`));
+const IMAGE_MODAL_BUTTON_FORWARD_CLASS = (/* unused pure expression or super */ null && (`${IMAGE_MODAL_BUTTON_CLASS}_forward`));
+const IMAGE_MODAL_ACTIVE_CLASS = (/* unused pure expression or super */ null && (`${IMAGE_MODAL_CLASS}_active`));
 const IMAGE_MODAL_ITEM_CLASS = "image-modal__item";
+
+const getFullImagePathAndIndexFromSrc = (src) => {
+  console.log(src);
+}
 
 const addDotToClassName = (className) => `.${className}`;
 const classSelector = (className, parent) =>
@@ -14650,12 +14696,14 @@ const initBurger = () => {
 };
 
 
-const collectionImages = classSelectorAll(COLLECTION_ITEM_CLASS);
+const collectionList = classSelector(COLLECTION_LIST_CLASS);
+const collectionImages = classSelectorAll(COLLECTION_IMAGE_CLASS);
+
 const catalogImages = classSelectorAll(CATALOG_ITEM_CLASS);
 
-const openImageModal = async (index, imagePath, items) => {
+const openImageModal = async (index, src, items) => {
 
-  const currentImage = await __webpack_require__(13751)(`./${imagePath}-${index}.webp`);
+  const currentImage = await __webpack_require__(13751)(`./${src}-${index}.webp`);
 
   if (!currentImage) {
     return;
@@ -14681,7 +14729,7 @@ const openImageModal = async (index, imagePath, items) => {
     }
     // console.log(index, imageIndex);
 
-    newImage = await __webpack_require__(13751)(`./${imagePath}-${imageIndex + 1}.webp`);
+    newImage = await __webpack_require__(13751)(`./${src}-${imageIndex + 1}.webp`);
 
     if (newImage) {
       image.src = newImage.default;
@@ -14700,17 +14748,25 @@ const openImageModal = async (index, imagePath, items) => {
   image.src = currentImage.default;
 };
 
-collectionImages.forEach((item, index) => {
-  item.addEventListener("click", () => {
-    openImageModal(index + 1, "collection/toppings", collectionImages);
-  });
-});
+// collectionList.addEventListener("click", (e) => {
+//   const { target } = e
+//   if (target.classList.contains(COLLECTION_IMAGE_CLASS)) {
+//     getFullImagePathAndIndexFromSrc(target.src)
+//     // openImageModal(index + 1, target.src, collectionImages);
+//   }
+// })
 
-catalogImages.forEach((item, index) => {
-  item.addEventListener("click", () => {
-    openImageModal(index + 1, "catalog/bento/bento", catalogImages);
-  });
-});
+// collectionImages.forEach((item, index) => {
+//   item.addEventListener("click", () => {
+//     openImageModal(index + 1, item.src, collectionImages);
+//   });
+// });
+
+// catalogImages.forEach((item, index) => {
+//   item.addEventListener("click", () => {
+//     openImageModal(index + 1, item.src, catalogImages);
+//   });
+// });
 
 document.addEventListener("DOMContentLoaded", () => {
   initSwipers();
@@ -14722,64 +14778,68 @@ const catalogInnerList = classSelector(CATALOG_INNER_LIST_CLASS)
 const catalogItems = classSelectorAll(CATALOG_ITEM_CLASS)
 const catalogInnerButtons = classSelectorAll(CATALOG_INNER_BUTTON_CLASS)
 
-catalogInnerList.addEventListener("click", (e) => {
-  const { target } = e
-  if (target.classList.contains(CATALOG_INNER_BUTTON_CLASS)) {
-    catalogInnerButtons.forEach(item => {
-      item.classList.remove(CATALOG_BUTTON_ACTIVE_CLASS)
-    })
-    e.target.classList.add(CATALOG_BUTTON_ACTIVE_CLASS)
+if (catalogInnerList) {
+  catalogInnerList.addEventListener("click", (e) => {
+    const { target } = e
+    if (target.classList.contains(CATALOG_INNER_BUTTON_CLASS)) {
+      catalogInnerButtons.forEach(item => {
+        item.classList.remove(CATALOG_BUTTON_ACTIVE_CLASS)
+      })
+      target.classList.add(CATALOG_BUTTON_ACTIVE_CLASS)
 
-    const attribute = target.getAttribute("data-link");
+      const attribute = target.getAttribute("data-link");
 
-    catalogItems.forEach(catalogItem => {
-      const catalogItemAttribute = catalogItem.getAttribute("data-link")
-      if (attribute === 'all') {
-        catalogItem.classList.remove(CATALOG_ITEM_HIDDEN_CLASS)
-      }
-      else if (catalogItemAttribute !== attribute) {
-        catalogItem.classList.add(CATALOG_ITEM_HIDDEN_CLASS)
-      } else {
-        catalogItem.classList.remove(CATALOG_ITEM_HIDDEN_CLASS)
-      }
-    })
-  }
-})
+      catalogItems.forEach(catalogItem => {
+        const catalogItemAttribute = catalogItem.getAttribute("data-link")
+        if (attribute === 'all') {
+          catalogItem.classList.remove(CATALOG_ITEM_HIDDEN_CLASS)
+        }
+        else if (catalogItemAttribute !== attribute) {
+          catalogItem.classList.add(CATALOG_ITEM_HIDDEN_CLASS)
+        } else {
+          catalogItem.classList.remove(CATALOG_ITEM_HIDDEN_CLASS)
+        }
+      })
+    }
+  })
 
-const catalogList = classSelector(CATALOG_LIST_CLASS)
-const catalogTabs = classSelectorAll(CATALOG_TAB_CLASS)
-const catalogTabsButtons = classSelectorAll(CATALOG_TAB_BUTTON_CLASS)
+  const catalogList = classSelector(CATALOG_LIST_CLASS)
+  const catalogTabs = classSelectorAll(CATALOG_TAB_CLASS)
+  const catalogTabsButtons = classSelectorAll(CATALOG_TAB_BUTTON_CLASS)
 
-catalogList.addEventListener("click", (e) => {
-  const { target } = e
-  if (target.classList.contains(CATALOG_TAB_BUTTON_CLASS)) {
-    catalogItems.forEach(item => {
-      item.classList.remove(CATALOG_ITEM_HIDDEN_CLASS)
-    })
-    catalogInnerButtons.forEach(item => {
-      item.classList.remove(CATALOG_BUTTON_ACTIVE_CLASS)
-    })
-    catalogInnerButtons[0].classList.add(CATALOG_BUTTON_ACTIVE_CLASS)
+  catalogList.addEventListener("click", (e) => {
+    const { target } = e
+    if (target.classList.contains(CATALOG_TAB_BUTTON_CLASS)) {
+      catalogItems.forEach(item => {
+        item.classList.remove(CATALOG_ITEM_HIDDEN_CLASS)
+      })
+      catalogInnerButtons.forEach(item => {
+        item.classList.remove(CATALOG_BUTTON_ACTIVE_CLASS)
+      })
+      catalogInnerButtons[0].classList.add(CATALOG_BUTTON_ACTIVE_CLASS)
 
-    catalogTabsButtons.forEach(item => {
-      item.classList.remove(CATALOG_BUTTON_ACTIVE_CLASS)
-    })
-    e.target.classList.add(CATALOG_BUTTON_ACTIVE_CLASS)
+      catalogTabsButtons.forEach(item => {
+        item.classList.remove(CATALOG_BUTTON_ACTIVE_CLASS)
+      })
+      e.target.classList.add(CATALOG_BUTTON_ACTIVE_CLASS)
 
-    const attribute = target.getAttribute("data-tab");
+      const attribute = target.getAttribute("data-tab");
 
-    catalogTabs.forEach(catalogTab => {
+      catalogTabs.forEach(catalogTab => {
 
-      const catalogItemAttribute = catalogTab.getAttribute("data-tab")
-      if (catalogItemAttribute == attribute) {
-        catalogTab.classList.add(CATALOG_ACTIVE_TAB_CLASS)
-      } else {
-        catalogTab.classList.remove(CATALOG_ACTIVE_TAB_CLASS)
-      }
-    })
-  }
+        const catalogItemAttribute = catalogTab.getAttribute("data-tab")
+        if (catalogItemAttribute == attribute) {
+          catalogTab.classList.add(CATALOG_ACTIVE_TAB_CLASS)
+        } else {
+          catalogTab.classList.remove(CATALOG_ACTIVE_TAB_CLASS)
+        }
+      })
+    }
 
-})
+  })
+}
+
+
 })();
 
 /******/ })()
