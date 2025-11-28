@@ -12,19 +12,20 @@
     }
   }
   &__content {
-    display: grid;
+    display: flex;
     gap: 3%;
-    align-items: center;
-    grid-template-columns: 2fr 2fr;
-    flex-wrap: wrap;
+    align-items: stretch;
     @include mobile {
-      flex-direction: column-reverse;
       gap: 1rem;
+      flex-direction: column-reverse;
     }
   }
   &__image {
     object-position: center;
-    max-height: 400px;
+    max-height: 500px;
+    @include mobile {
+      max-height: none;
+    }
   }
   &__block {
     position: relative;
