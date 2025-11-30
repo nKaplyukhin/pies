@@ -107,8 +107,6 @@ const initBurger = () => {
 };
 
 const collectionList = classSelector(COLLECTION_LIST_CLASS);
-const collectionImages = classSelectorAll(COLLECTION_IMAGE_CLASS);
-
 
 let modalClickHandler = null; // будем хранить ссылку на текущий обработчик
 
@@ -177,29 +175,28 @@ if (collectionList) {
   collectionList.addEventListener("click", (e) => {
     const { target } = e
     const path = e.currentTarget.getAttribute("data-path")
+
     if (target.classList.contains(COLLECTION_IMAGE_CLASS)) {
+      const collectionImages = classSelectorAll(COLLECTION_IMAGE_CLASS);
       const { alt } = target
       const { index } = getIndexFromAlt(alt)
 
-      console.log(path);
+      console.log(collectionImages);
 
       openImageModal(index, path, collectionImages);
     }
   })
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  initSwipers();
-  initBurger();
-});
-
 let imagesFilter = "all"
-let imagesSize = 20
 
 const catalogInnerList = classSelector(CATALOG_INNER_LIST_CLASS)
 const catalogGalleryList = classSelectorAll(CATALOG_GALLERY_LIST_CLASS)
 const catalogItems = classSelectorAll(CATALOG_ITEM_CLASS)
 const catalogInnerButtons = classSelectorAll(CATALOG_INNER_BUTTON_CLASS)
+
+let imagesSize = 20
+
 
 if (catalogGalleryList) {
   catalogGalleryList.forEach(item => {
@@ -230,7 +227,9 @@ if (catalogInnerList) {
       })
       target.classList.add(CATALOG_BUTTON_ACTIVE_CLASS)
 
-      const attribute = target.getAttribute("data-link");
+      const attribute = target.getAttribute("data-filter");
+
+      window.location.href = `./catalog.html#${attribute}`
 
       imagesFilter = attribute
 
@@ -270,6 +269,8 @@ if (catalogInnerList) {
 
       const attribute = target.getAttribute("data-tab");
 
+      window.location.href = `./catalog.html#${attribute}`
+
       catalogTabs.forEach(catalogTab => {
 
         const catalogItemAttribute = catalogTab.getAttribute("data-tab")
@@ -283,3 +284,104 @@ if (catalogInnerList) {
 
   })
 }
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const targetId = this.getAttribute('href');
+    const targetElement = document.querySelector(targetId);
+    if (targetElement) {
+      const headerOffset = 77; // высота sticky header’а в пикселях
+      const elementPosition = targetElement.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.scrollY - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth' // опционально: плавная прокрутка
+      });
+    }
+  });
+});
+
+const footerLinks = () => {
+  const tabLinks = document.querySelectorAll(".footer-link-tab-item")
+  const links = document.querySelectorAll(".footer-link-item")
+
+  tabLinks.forEach(tabLink => {
+    tabLink.addEventListener("click", (e) => {
+      const tab = tabLink.getAttribute("data-link")
+      window.location.href = `./catalog.html#${tab}`
+
+    })
+  })
+
+  links.forEach(tabLink => {
+    tabLink.addEventListener("click", (e) => {
+      const link = tabLink.getAttribute("data-link")
+      window.location.href = `./catalog.html#${link}`
+    })
+  })
+}
+
+footerLinks()
+
+document.addEventListener("DOMContentLoaded", (e) => {
+  if (window.location.href.includes("catalog")) {
+    const currentHash = location.hash.slice(1);
+    const tabTarget = document.querySelector(`[data-tab="${currentHash}"]`);
+    const galleryFilterTarget = document.querySelector(`[data-filter="${currentHash}"]`);
+
+    if (tabTarget) {
+      const catalogTabsButtons = classSelectorAll(CATALOG_TAB_BUTTON_CLASS)
+      const catalogTabs = classSelectorAll(CATALOG_TAB_CLASS)
+
+      catalogItems.forEach(item => {
+        item.classList.remove(CATALOG_ITEM_HIDDEN_CLASS)
+      })
+      catalogInnerButtons.forEach(item => {
+        item.classList.remove(CATALOG_BUTTON_ACTIVE_CLASS)
+      })
+      catalogInnerButtons[0].classList.add(CATALOG_BUTTON_ACTIVE_CLASS)
+
+      catalogTabsButtons.forEach(item => {
+        item.classList.remove(CATALOG_BUTTON_ACTIVE_CLASS)
+      })
+      tabTarget.classList.add(CATALOG_BUTTON_ACTIVE_CLASS)
+
+      catalogTabs.forEach(catalogTab => {
+
+        const catalogItemAttribute = catalogTab.getAttribute("data-tab")
+        if (catalogItemAttribute == currentHash) {
+          catalogTab.classList.add(CATALOG_ACTIVE_TAB_CLASS)
+        } else {
+          catalogTab.classList.remove(CATALOG_ACTIVE_TAB_CLASS)
+        }
+      })
+    } else if (galleryFilterTarget) {
+      const catalogInnerButtons = classSelectorAll(CATALOG_INNER_BUTTON_CLASS)
+
+      catalogInnerButtons.forEach(item => {
+        item.classList.remove(CATALOG_BUTTON_ACTIVE_CLASS)
+      })
+      galleryFilterTarget.classList.add(CATALOG_BUTTON_ACTIVE_CLASS)
+
+      imagesFilter = currentHash
+
+      catalogItems.forEach(catalogItem => {
+        const catalogItemAttribute = catalogItem.getAttribute("data-link")
+        if (currentHash === 'all') {
+          catalogItem.classList.remove(CATALOG_ITEM_HIDDEN_CLASS)
+        }
+        else if (catalogItemAttribute !== currentHash) {
+          catalogItem.classList.add(CATALOG_ITEM_HIDDEN_CLASS)
+        } else {
+          catalogItem.classList.remove(CATALOG_ITEM_HIDDEN_CLASS)
+        }
+      })
+    }
+
+  }
+
+  initSwipers();
+  initBurger();
+});

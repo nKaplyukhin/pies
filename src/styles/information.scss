@@ -9,6 +9,38 @@
     z-index: 1;
   }
 
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    gap: 20% 2%;
+  }
+
+  &__item {
+    flex: 0 0 23.5%;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    position: relative;
+    margin-bottom: 1rem;
+    transition: 0.3s ease-out;
+    &:hover {
+      transform: scale(1.01);
+    }
+    &:last-child {
+      margin-bottom: 0;
+    }
+    @include mobile {
+      flex: 0 0 48.5%;
+      &:not(:last-child) {
+        margin-bottom: 2rem;
+      }
+    }
+    &_hidden {
+      display: none;
+    }
+  }
+
   &__block {
     position: relative;
     display: flex;
