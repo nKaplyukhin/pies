@@ -4900,10 +4900,6 @@ var map = {
 	"./hero-image.webp": [
 		96654,
 		96654
-	],
-	"./icons/wedding-cake.webp": [
-		63534,
-		63534
 	]
 };
 function webpackAsyncContext(req) {
