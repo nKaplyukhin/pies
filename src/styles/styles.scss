@@ -142,7 +142,9 @@ ul {
   gap: 3rem;
   transition: all 0.5s ease-out;
   @include mobile {
-    flex-direction: column;
+    display: grid;
+    grid-template-areas: "img img img img" "s s left right";
+    grid-gap: 1rem;
   }
   &__item {
     user-select: none;
@@ -153,7 +155,7 @@ ul {
     transition: all 0.3s ease-out;
     object-fit: contain;
     @include mobile {
-     order: -1;
+      grid-area: img;
     }
   }
   &__button {
@@ -169,6 +171,19 @@ ul {
     font-size: 1.7rem;
     font-weight: 100;
     transition: 0.3s ease-out;
+    @include mobile {
+      justify-self: end;
+    }
+    &_back {
+      @include mobile {
+        grid-area: left;
+      }
+    }
+    &_forward {
+      @include mobile {
+        grid-area: right;
+      }
+    }
     & > span {
       pointer-events: none;
     }
