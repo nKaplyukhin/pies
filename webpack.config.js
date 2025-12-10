@@ -19,6 +19,9 @@ module.exports = () => ({
     historyApiFallback: true,
     watchFiles: src,
     open: true,
+    static: {
+      directory: path.join(__dirname, 'public'),
+    },
   },
   resolve: {
     modules: [src, "node_modules"],
@@ -74,7 +77,7 @@ module.exports = () => ({
       filename: 'catalog.html',
     }),
 
-      new HtmlWebpackPlugin({
+    new HtmlWebpackPlugin({
       template: './generator.html',
       filename: 'generator.html',
     }),

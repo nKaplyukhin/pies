@@ -29,6 +29,7 @@ import {
   REVIEWS_SWIPER_CLASS
 } from "./constants";
 
+const filters = ["bento", "bomb", "tier", "girl", "boy", "woman", "man"]
 
 const getIndexFromAlt = (alt) => {
   const [name, index] = alt.split("-")
@@ -91,6 +92,15 @@ const initSwipers = () => {
 const initBurger = () => {
   const burgerButton = classSelector(BURGER_BUTTTON_CLASS);
   const burgerMenu = classSelector(BURGER_MENU_CLASS);
+  const burgerLinks = burgerMenu.querySelectorAll(".burger-menu__link")
+
+  burgerLinks.forEach(item => {
+    item.addEventListener("click", () => {
+      burgerMenu.classList.remove(ACTIVE_BURGER_MENU_CLASS);
+      burgerButton.classList.remove(ACTIVE_BURGER_BUTTTON_CLASS);
+      document.body.style.overflow = null;
+    })
+  })
 
   burgerButton.addEventListener("click", (e) => {
     if (burgerButton.classList.contains(ACTIVE_BURGER_BUTTTON_CLASS)) {
@@ -110,9 +120,7 @@ const collectionList = classSelector(COLLECTION_LIST_CLASS);
 
 let modalClickHandler = null; // будем хранить ссылку на текущий обработчик
 
-const openImageModal = async (index, src, items) => {
-  const currentImage = await import(`./assets/images/${src}-${index}.webp`);
-  if (!currentImage) return;
+const openImageModal = async (index, path, items) => {
 
   const modal = classSelector(IMAGE_MODAL_CLASS);
   const image = classSelector(IMAGE_MODAL_ITEM_CLASS, modal);
@@ -137,6 +145,8 @@ const openImageModal = async (index, src, items) => {
       modal.classList.remove(IMAGE_MODAL_ACTIVE_CLASS);
       modal.removeEventListener("click", modalClickHandler);
       modalClickHandler = null;
+      image.removeAttribute("src")
+      document.body.style.overflow = null;
       return;
     }
 
@@ -144,21 +154,17 @@ const openImageModal = async (index, src, items) => {
     // Навигация
     if (
       classList.contains(IMAGE_MODAL_BUTTON_FORWARD_CLASS) &&
-      imageIndex < items.length
+      imageIndex < items.length - 1
     ) {
       imageIndex += 1;
     }
-    if (classList.contains(IMAGE_MODAL_BUTTON_BACK_CLASS) && imageIndex > 1) { // ⚠️ было > 1, должно быть > 0
+    if (classList.contains(IMAGE_MODAL_BUTTON_BACK_CLASS) && imageIndex > 0) { // ⚠️ было > 1, должно быть > 0
       imageIndex -= 1;
     }
 
     try {
-      const newImage = await import(`./assets/images/${src}-${imageIndex}.webp`);
-      if (newImage?.default) {
-        image.src = newImage.default;
-        // Обновляем замыкание: новое значение index для следующего клика
-        // Но это не сработает — замыкание фиксирует `index`!
-      }
+      const newPath = items[imageIndex].getAttribute("data-src")
+      image.src = newPath;
     } catch (err) {
       console.error("Image load failed:", err);
     }
@@ -168,27 +174,21 @@ const openImageModal = async (index, src, items) => {
   modal.addEventListener("click", modalClickHandler);
 
   modal.classList.add(IMAGE_MODAL_ACTIVE_CLASS);
-  image.src = currentImage.default;
+  document.body.style.overflow = "hidden";
+  image.src = path;
 };
 
 if (collectionList) {
-  collectionList.addEventListener("click", (e) => {
-    const { target } = e
-    const path = e.currentTarget.getAttribute("data-path")
-
-    if (target.classList.contains(COLLECTION_IMAGE_CLASS)) {
-      const collectionImages = classSelectorAll(COLLECTION_IMAGE_CLASS);
-      const { alt } = target
-      const { index } = getIndexFromAlt(alt)
-
-      console.log(collectionImages);
-
+  const collectionImages = classSelectorAll(COLLECTION_IMAGE_CLASS);
+  collectionImages.forEach((img, index) => {
+    img.addEventListener("click", () => {
+      const path = img.getAttribute("data-src")
       openImageModal(index, path, collectionImages);
-    }
+    })
   })
 }
 
-let imagesFilter = "all"
+let imagesFilter = location.hash.slice(1) || "all"
 
 const catalogInnerList = classSelector(CATALOG_INNER_LIST_CLASS)
 const catalogGalleryList = classSelectorAll(CATALOG_GALLERY_LIST_CLASS)
@@ -197,25 +197,24 @@ const catalogInnerButtons = classSelectorAll(CATALOG_INNER_BUTTON_CLASS)
 
 let imagesSize = 20
 
-
 if (catalogGalleryList) {
-  catalogGalleryList.forEach(item => {
-    item.addEventListener("click", (e) => {
-      const { target } = e
-      const path = e.currentTarget.getAttribute("data-path")
-      if (target.classList.contains(CATALOG_GALLERY_IMAGE_CLASS)) {
-        const { alt } = target
-        const { name, index } = getIndexFromAlt(alt)
+  const catalogItems = classSelectorAll(CATALOG_ITEM_CLASS)
 
-        openImageModal(index, `${path}/${name}`, catalogItems);
-      }
+  catalogItems.forEach((img) => {
+    img.addEventListener("click", () => {
+      const path = img.getAttribute("data-src")
+      let imagesFilter = location.hash.slice(1) || "all"
+
+      const items = [...catalogItems].filter(item => {
+        if (imagesFilter === "all" || imagesFilter === "cake")
+          return filters.includes(item.getAttribute("data-link"))
+        return item.getAttribute("data-link") === imagesFilter
+      })
+      const index = [...items].indexOf(img);
+
+      openImageModal(index, path, items);
     })
   })
-
-  const catalogItemsSize = catalogItems.length
-
-  // console.log(catalogItemsSize);
-
 }
 
 if (catalogInnerList) {
@@ -305,20 +304,12 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 const footerLinks = () => {
   const tabLinks = document.querySelectorAll(".footer-link-tab-item")
-  const links = document.querySelectorAll(".footer-link-item")
 
   tabLinks.forEach(tabLink => {
     tabLink.addEventListener("click", (e) => {
       const tab = tabLink.getAttribute("data-link")
       window.location.href = `./catalog.html#${tab}`
 
-    })
-  })
-
-  links.forEach(tabLink => {
-    tabLink.addEventListener("click", (e) => {
-      const link = tabLink.getAttribute("data-link")
-      window.location.href = `./catalog.html#${link}`
     })
   })
 }
