@@ -218,6 +218,11 @@ if (catalogGalleryList) {
 }
 
 if (catalogInnerList) {
+  const catalogList = classSelector(CATALOG_LIST_CLASS)
+  const catalogTabs = classSelectorAll(CATALOG_TAB_CLASS)
+  const catalogTabsButtons = classSelectorAll(CATALOG_TAB_BUTTON_CLASS)
+  const catalog = document.getElementById("catalog")
+
   catalogInnerList.addEventListener("click", (e) => {
     const { target } = e
     if (target.classList.contains(CATALOG_INNER_BUTTON_CLASS)) {
@@ -231,6 +236,11 @@ if (catalogInnerList) {
       window.location.href = `./catalog.html#${attribute}`
 
       imagesFilter = attribute
+
+      catalog.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      })
 
       catalogItems.forEach(catalogItem => {
         const catalogItemAttribute = catalogItem.getAttribute("data-link")
@@ -246,9 +256,7 @@ if (catalogInnerList) {
     }
   })
 
-  const catalogList = classSelector(CATALOG_LIST_CLASS)
-  const catalogTabs = classSelectorAll(CATALOG_TAB_CLASS)
-  const catalogTabsButtons = classSelectorAll(CATALOG_TAB_BUTTON_CLASS)
+
 
   catalogList.addEventListener("click", (e) => {
     const { target } = e
@@ -269,6 +277,11 @@ if (catalogInnerList) {
       const attribute = target.getAttribute("data-tab");
 
       window.location.href = `./catalog.html#${attribute}`
+
+      catalog.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      })
 
       catalogTabs.forEach(catalogTab => {
 

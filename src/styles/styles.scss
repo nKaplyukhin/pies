@@ -173,6 +173,8 @@ ul {
     transition: 0.3s ease-out;
     @include mobile {
       justify-self: end;
+      margin-top: auto;
+      margin-bottom: 1rem;
     }
     &_back {
       @include mobile {
@@ -219,3 +221,4 @@ ul {
 @import "./information";
 @import "./catalog";
 @import "./footer";
+@import "./wedding";

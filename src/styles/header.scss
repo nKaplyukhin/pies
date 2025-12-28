@@ -186,6 +186,9 @@
     width: 1.5rem;
     display: none;
     object-fit: contain;
+    &_fruit {
+      width: 18px;
+    }
 
     @include mobile {
       display: block;
