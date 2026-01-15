@@ -187,7 +187,15 @@
     display: none;
     object-fit: contain;
     &_fruit {
-      width: 18px;
+      width: 1.2rem
+    }
+
+    &_main {
+      width: 1.3rem;
+    }
+
+    &_cake {
+      width: 1.6rem;
     }
 
     @include mobile {
